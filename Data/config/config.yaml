@@ -22,7 +22,6 @@ data_sources:
     - "BTC/USDT"
     - "ETH/USDT"
 
-
 fred_datasets:
   # 1. 국내총생산 (GDP) - 20개
   - name: "미국 실질 국내총생산 (Real GDP)"

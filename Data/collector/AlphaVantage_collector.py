@@ -2,35 +2,50 @@ import requests
 import psycopg2 
 from datetime import datetime, timedelta
 import os
+import sys
 import pandas as pd 
 import time 
 import logging
 
-from Data.config.config_loader import CONFIG 
-from logger_config import setup_logging 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, os.pardir, os.pardir))
 
-setup_logging()
-logger = logging.getLogger(__name__)
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+    
+from Data.config import config_loader  
+from utils.logger_config import setup_logging
 
-# --- 데이터 저장 기본 경로 설정 ---
-DATA_FOLDER = "Data_AlphaVantage"
+setup_logging() # logger_config.py 내에서 로거 이름이 'app' 등으로 설정되어 있을 가능성
+logger = logging.getLogger(__name__) # 현재 모듈의 로거를 가져옴
 
-def ensure_data_folder_exists():
-    """기본 데이터 폴더가 없으면 생성합니다."""
-    if not os.path.exists(DATA_FOLDER):
-        os.makedirs(DATA_FOLDER)
-        logger.info(f"'{DATA_FOLDER}' 폴더를 생성했습니다.")
+BASE_RAW_DATA_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), # 현재 파일의 디렉토리
+    os.pardir, # data/
+    "raw_data" # raw_data/
+)
+
+ALPHA_VANTAGE_DATA_FOLDER = os.path.join(BASE_RAW_DATA_PATH, "alpha_vantage")
+CRYPTO_DATA_FOLDER = os.path.join(BASE_RAW_DATA_PATH, "crypto")
+
+
+def ensure_data_folder_exists(folder_path):
+    """지정된 데이터 폴더가 없으면 생성합니다."""
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+        logger.info(f"'{folder_path}' 폴더를 생성했습니다.")
 
 # --- Database Connection ---
 def get_db_connection():
     """데이터베이스 연결 객체를 반환합니다."""
     try:
+        # CONFIG는 이제 config_loader에서 로드된 사전이어야 합니다.
         conn = psycopg2.connect(
-            host=CONFIG['database']['host'],
-            database=CONFIG['database']['dbname'],
-            user=CONFIG['database']['user'],
-            password=CONFIG['database']['password'],
-            port=CONFIG['database']['port']
+            host=config_loader.CONFIG['database']['host'],
+            database=config_loader.CONFIG['database']['dbname'],
+            user=config_loader.CONFIG['database']['user'],
+            password=config_loader.CONFIG['database']['password'],
+            port=config_loader.CONFIG['database']['port']
         )
         return conn
     except Exception as e:
@@ -135,9 +150,9 @@ def collect_and_save_stock_ohlcv_alphavantage(symbol, api_key, outputsize='full'
             exchange_name = stock_info.get('exchange', 'Unknown_Exchange').replace('/', '_').replace('\\', '_') if stock_info else 'Unknown_Exchange'
             industry_name = stock_info.get('industry', 'Unknown_Industry').replace('/', '_').replace('\\', '_') if stock_info else 'Unknown_Industry'
             
-            # 폴더 경로 생성
-            target_folder = os.path.join(DATA_FOLDER, exchange_name, industry_name)
-            os.makedirs(target_folder, exist_ok=True) # 존재하지 않으면 폴더 생성
+            # (3) 파일 저장 경로 변경: ALPHA_VANTAGE_DATA_FOLDER 사용
+            target_folder = os.path.join(ALPHA_VANTAGE_DATA_FOLDER, exchange_name, industry_name, "ohlcv") # OHLCV는 별도 폴더
+            ensure_data_folder_exists(target_folder) # 새 경로에 맞춰 폴더 생성 함수 호출
             
             file_path = os.path.join(target_folder, f"{symbol}_ohlcv.csv")
             df.to_csv(file_path, index=False) 
@@ -164,7 +179,7 @@ def collect_and_save_financials_alphavantage(symbol, api_key):
     logger.info(f"[{symbol}] AlphaVantage에서 재무제표 데이터 수집 시작...")
     
     if not api_key:
-        logger.warning(f"[{symbol}] AlphaVantage API 키를 찾을 수 없습니다. 재무제표 수집을 건너뜁니다.")
+        logger.warning(f"[{symbol}] AlphaVantage API 키를 찾을 수 없습니다. 재무제표 수집을 건너킵니다.")
         return
 
     conn = None
@@ -173,7 +188,7 @@ def collect_and_save_financials_alphavantage(symbol, api_key):
         conn = get_db_connection()
         cur = conn.cursor()
     except Exception:
-        logger.error(f"[{symbol}] 재무제표 데이터베이스 연결에 실패하여 DB 저장 작업을 건너뜁니다. 파일 저장만 시도합니다.")
+        logger.error(f"[{symbol}] 재무제표 데이터베이스 연결에 실패하여 DB 저장 작업을 건너킵니다. 파일 저장만 시도합니다.")
 
     try:
         urls = {
@@ -310,9 +325,9 @@ def collect_and_save_financials_alphavantage(symbol, api_key):
             exchange_name = stock_info.get('exchange', 'Unknown_Exchange').replace('/', '_').replace('\\', '_') if stock_info else 'Unknown_Exchange'
             industry_name = stock_info.get('industry', 'Unknown_Industry').replace('/', '_').replace('\\', '_') if stock_info else 'Unknown_Industry'
             
-            # 폴더 경로 생성
-            target_folder = os.path.join(DATA_FOLDER, exchange_name, industry_name)
-            os.makedirs(target_folder, exist_ok=True) # 존재하지 않으면 폴더 생성
+            # (4) 파일 저장 경로 변경: ALPHA_VANTAGE_DATA_FOLDER 사용
+            target_folder = os.path.join(ALPHA_VANTAGE_DATA_FOLDER, exchange_name, industry_name, "financials") # 재무제표는 별도 폴더
+            ensure_data_folder_exists(target_folder) # 새 경로에 맞춰 폴더 생성 함수 호출
 
             file_path = os.path.join(target_folder, f"{symbol}_financials.csv")
             df.to_csv(file_path, index=False)
@@ -332,14 +347,15 @@ def collect_and_save_financials_alphavantage(symbol, api_key):
 
 # --- Stock Company Overview Data Collection (AlphaVantage 기반) ---
 def collect_stock_info_alphavantage(symbol, api_key):
-    """
-    AlphaVantage API를 사용하여 특정 주식의 회사 개요(거래소, 산업 분야 등)를 수집하고
-    데이터베이스의 stock_info 테이블에 저장합니다.
-    """
+    # 이 함수는 파일 저장과 직접적인 관련은 없지만,
+    # collect_and_save_stock_ohlcv_alphavantage 및 collect_and_save_financials_alphavantage 에서
+    # stock_info를 조회하므로 반드시 DB에 정보가 있어야 합니다.
+    # 따라서 이 함수는 파일 저장 폴더 변경에 직접적인 영향은 없습니다.
+    
     logger.info(f"[{symbol}] AlphaVantage에서 회사 개요 데이터 수집 시작...")
 
     if not api_key:
-        logger.warning(f"[{symbol}] AlphaVantage API 키를 찾을 수 없습니다. 회사 개요 수집을 건너뜁니다.")
+        logger.warning(f"[{symbol}] AlphaVantage API 키를 찾을 수 없습니다. 회사 개요 수집을 건너킵니다.")
         return {}
 
     url = f"https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol}&apikey={api_key}"
@@ -350,7 +366,7 @@ def collect_stock_info_alphavantage(symbol, api_key):
         conn = get_db_connection()
         cur = conn.cursor()
     except Exception:
-        logger.error(f"[{symbol}] 회사 개요 데이터베이스 연결에 실패하여 DB 저장 작업을 건너뜁니다. API 응답만 반환합니다.")
+        logger.error(f"[{symbol}] 회사 개요 데이터베이스 연결에 실패하여 DB 저장 작업을 건너킵니다. API 응답만 반환합니다.")
 
     try:
         response = requests.get(url, timeout=30)
@@ -528,8 +544,10 @@ def collect_and_save_crypto_ohlcv(symbol, since_days=365, exchange_id='binance')
             df['timestamp'] = pd.to_datetime(df['timestamp'])
             df = df.sort_values(by='timestamp').reset_index(drop=True)
             
-            # 암호화폐는 거래소/산업분야 폴더 구조를 따르지 않음
-            file_path = os.path.join(DATA_FOLDER, f"{symbol.replace('/', '_')}_crypto_ohlcv.csv")
+            # (5) 파일 저장 경로 변경: CRYPTO_DATA_FOLDER 사용
+            file_path = os.path.join(CRYPTO_DATA_FOLDER, f"{symbol.replace('/', '_')}_ohlcv.csv") # 암호화폐는 OHLCV 폴더 구조는 불필요할 수 있으므로 바로 파일명
+            ensure_data_folder_exists(os.path.dirname(file_path)) # 상위 폴더 생성
+            
             df.to_csv(file_path, index=False)
             logger.info(f"[{symbol}] {exchange_id}에서 암호화폐 OHLCV 데이터 {len(df)}개를 '{file_path}'에 성공적으로 저장했습니다.")
         else:
@@ -551,14 +569,17 @@ def collect_and_save_crypto_ohlcv(symbol, since_days=365, exchange_id='binance')
 if __name__ == "__main__":
     logger.info("AlphaVantage & Crypto 데이터 수집 스크립트 시작 (DB 및 파일 동시 저장 모드).")
 
-    ensure_data_folder_exists()
+    # (6) AlphaVantage 및 Crypto 데이터 폴더가 있는지 확인하고 없으면 생성
+    ensure_data_folder_exists(ALPHA_VANTAGE_DATA_FOLDER)
+    ensure_data_folder_exists(CRYPTO_DATA_FOLDER)
 
-    alphavantage_api_key = CONFIG['api_keys'].get('alphavantage') 
+    # (7) config_loader.CONFIG 참조 방식 변경 (최상단 임포트와 연관)
+    alphavantage_api_key = config_loader.CONFIG['api_keys'].get('alphavantage') 
     if not alphavantage_api_key:
         logger.critical("config.yaml에 'api_keys' 아래 'alphavantage' API 키가 설정되어 있지 않습니다. 스크립트를 종료합니다.")
         exit(1) 
 
-    stock_symbols = CONFIG['data_sources'].get('stocks', [])
+    stock_symbols = config_loader.CONFIG['data_sources'].get('stocks', [])
     if not stock_symbols:
         logger.warning("config.yaml에 'data_sources' 아래 'stocks' 목록이 비어 있습니다. 주식 데이터 수집을 건너킵니다.")
 
@@ -587,7 +608,7 @@ if __name__ == "__main__":
         time.sleep(15) 
     logger.info("모든 주식 재무제표 데이터 수집 완료.")
     
-    crypto_symbols = CONFIG['data_sources'].get('cryptos', [])
+    crypto_symbols = config_loader.CONFIG['data_sources'].get('cryptos', [])
     if not crypto_symbols:
         logger.warning("config.yaml에 'data_sources' 아래 'cryptos' 목록이 비어 있습니다. 암호화폐 데이터 수집을 건너킵니다.")
 
