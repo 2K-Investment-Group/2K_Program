@@ -1,155 +1,154 @@
 import yaml
 import os
 import logging
-from dotenv import load_dotenv # .env 파일을 로드하기 위한 라이브러리 추가
-import sys # sys 모듈 추가 (sys.exit를 위해)
+from dotenv import load_dotenv # Import library to load .env files
+import sys # Import sys module for sys.exit
 
-# --- (1) 프로젝트 루트 경로를 동적으로 찾기 ---
+# --- (1) Dynamically find the project root path ---
 current_dir = os.path.dirname(os.path.abspath(__file__))
-# config_loader.py는 2K_Program/Data/config 안에 있으므로,
-# PROJECT_ROOT는 현재 디렉토리에서 두 번 상위 디렉토리로 이동해야 합니다.
+# As config_loader.py is inside 2K_Program/Data/config,
+# PROJECT_ROOT needs to go up two directories from the current directory.
 PROJECT_ROOT = os.path.abspath(os.path.join(current_dir, os.pardir, os.pardir))
 
-# .env 파일은 PROJECT_ROOT (2K_Program/)에 있다고 가정합니다.
+# Assume .env file is in PROJECT_ROOT (2K_Program/)
 DOTENV_PATH = os.path.join(PROJECT_ROOT, '.env')
 
-# --- (2) config.yaml 파일 경로 변경: config_loader.py와 같은 디렉토리 내에 있다고 가정 ---
-# config.yaml은 이제 Data/config/ 폴더 안에 있으므로,
-# current_dir (Data/config/)를 기준으로 찾습니다.
+# --- (2) Change config.yaml file path: Assume it's in the same directory as config_loader.py ---
+# config.yaml is now inside the Data/config/ folder, so
+# find it relative to current_dir (Data/config/).
 CONFIG_YAML_PATH = os.path.join(current_dir, 'config.yaml')
 
 
-# .env 파일 로드 (로깅이 설정되기 전에 실행되므로 print 사용)
 def load_environment_variables_initial():
     """
-    .env 파일에서 환경 변수를 로드합니다.
-    이 함수는 로깅 시스템이 완전히 설정되기 전에 호출될 수 있으므로,
-    주요 메시지는 print()를 사용합니다.
+    Loads environment variables from the .env file.
+    This function might be called before the logging system is fully set up,
+    so it uses print() for main messages.
     """
     if os.path.exists(DOTENV_PATH):
         load_dotenv(DOTENV_PATH)
-        print(f"INFO: '.env' 파일이 '{DOTENV_PATH}'에서 성공적으로 로드되었습니다.")
+        print(f"INFO: '.env' file successfully loaded from '{DOTENV_PATH}'.")
     else:
-        print(f"WARNING: '.env' 파일을 '{DOTENV_PATH}' 경로에서 찾을 수 없습니다.")
+        print(f"WARNING: '.env' file not found at '{DOTENV_PATH}'.")
 
-# 스크립트 로드 시 .env 먼저 로드
+# Load .env first when the script is loaded
 load_environment_variables_initial()
 
-# 로거 객체 생성 (로깅 설정은 각 Collector 스크립트의 main()에서 setup_logging을 통해 이루어짐)
+# Create a logger object (logging setup is done via setup_logging in each Collector script's main())
 logger = logging.getLogger(__name__)
 
-# 전역 CONFIG 변수 선언. load_config 호출 후 채워집니다.
+# Declare global CONFIG variable. It will be populated after calling load_config.
 CONFIG = {}
 
 def load_config():
     """
-    config.yaml 파일을 로드하고 환경 변수에서 민감한 정보를 가져와 설정합니다.
+    Loads the config.yaml file and populates sensitive information from environment variables.
     
     Returns:
-        dict: 로드되고 처리된 설정 딕셔너리.
+        dict: The loaded and processed configuration dictionary.
     
     Raises:
-        FileNotFoundError: config.yaml 파일을 찾을 수 없을 때.
-        yaml.YAMLError: config.yaml 파일 파싱 오류가 발생할 때.
-        ValueError: 필수 환경 변수를 찾을 수 없을 때.
-        Exception: 기타 예상치 못한 오류가 발생할 때.
+        FileNotFoundError: If config.yaml file is not found.
+        yaml.YAMLError: If an error occurs parsing the config.yaml file.
+        ValueError: If a required environment variable is not found.
+        Exception: For any other unexpected errors.
     """
-    logger.info(f"'{CONFIG_YAML_PATH}' 경로에서 config.yaml 파일 로드를 시도합니다.")
+    logger.info(f"Attempting to load config.yaml file from '{CONFIG_YAML_PATH}'.")
     
     if not os.path.exists(CONFIG_YAML_PATH):
-        logger.critical(f"오류: config.yaml 파일을 '{CONFIG_YAML_PATH}' 경로에서 찾을 수 없습니다. '{os.path.dirname(CONFIG_YAML_PATH)}' 폴더에 생성해주세요.")
+        logger.critical(f"Error: config.yaml file not found at '{CONFIG_YAML_PATH}'. Please create it in the '{os.path.dirname(CONFIG_YAML_PATH)}' folder.")
         raise FileNotFoundError(f"[Errno 2] No such file or directory: '{CONFIG_YAML_PATH}'")
 
     try:
         with open(CONFIG_YAML_PATH, 'r', encoding='utf-8') as f:
-            raw_config = yaml.safe_load(f) or {} # 빈 파일일 경우 대비
+            raw_config = yaml.safe_load(f) or {} # Handle empty file case
         
-        logger.info(f"'{CONFIG_YAML_PATH}' 파일이 성공적으로 로드되었습니다.")
+        logger.info(f"Successfully loaded '{CONFIG_YAML_PATH}'.")
 
         processed_config = {}
 
-        # 데이터베이스 설정 처리
+        # Process database settings
         db_config = raw_config.get('database', {})
         processed_db_config = {}
         for db_key, db_value in db_config.items():
-            if db_key.endswith('_env'): # _env로 끝나는 키는 환경 변수를 참조
+            if db_key.endswith('_env'): # Keys ending with _env reference environment variables
                 env_var_name = str(db_value)
                 env_var_value = os.getenv(env_var_name)
                 if env_var_value:
-                    processed_db_config[db_key[:-4]] = env_var_value # _env 제거하고 실제 키 이름으로 저장
-                    logger.info(f"데이터베이스 '{db_key[:-4]}' 정보를 환경 변수 '{env_var_name}'에서 로드했습니다.")
+                    processed_db_config[db_key[:-4]] = env_var_value # Remove _env and store with actual key name
+                    logger.info(f"Loaded database '{db_key[:-4]}' information from environment variable '{env_var_name}'.")
                 else:
-                    logger.critical(f"오류: 환경 변수 '{env_var_name}' (데이터베이스 {db_key[:-4]})를 찾을 수 없습니다. '.env' 파일에 설정했는지 확인하세요.")
-                    raise ValueError(f"필수 환경 변수 '{env_var_name}'가 설정되지 않았습니다.")
+                    logger.critical(f"Error: Environment variable '{env_var_name}' (database {db_key[:-4]}) not found. Ensure it's set in your '.env' file.")
+                    raise ValueError(f"Required environment variable '{env_var_name}' is not set.")
             else:
                 processed_db_config[db_key] = db_value
         processed_config['database'] = processed_db_config
 
-        # API 키 설정 처리
+        # Process API key settings
         api_keys_config = raw_config.get('api_keys', {})
         processed_api_keys = {}
         for key_name, value in api_keys_config.items():
-            # config.yaml의 값이 환경 변수 이름이라고 가정
-            env_var_name = str(value) # 값이 문자열임을 보장
+            # Assume the value in config.yaml is the environment variable name
+            env_var_name = str(value) # Ensure the value is a string
             api_key_value = os.getenv(env_var_name)
             if api_key_value:
                 processed_api_keys[key_name] = api_key_value
-                logger.info(f"API 키 '{key_name}'를 환경 변수 '{env_var_name}'에서 로드했습니다.")
+                logger.info(f"Loaded API key '{key_name}' from environment variable '{env_var_name}'.")
             else:
-                # API 키가 필수는 아닐 수 있으므로 경고 처리. 필요하다면 여기도 critical로 변경 가능.
-                logger.warning(f"경고: API 키 '{key_name}'에 대한 환경 변수 '{env_var_name}'를 찾을 수 없습니다. 해당 API 호출은 건너뛸 수 있습니다.")
-                processed_api_keys[key_name] = None # 값이 없으면 None으로 설정
+                # API keys might not be mandatory, so handle as a warning. Can be changed to critical if needed.
+                logger.warning(f"Warning: Environment variable '{env_var_name}' for API key '{key_name}' not found. Corresponding API calls might be skipped.")
+                processed_api_keys[key_name] = None # Set to None if value is missing
         processed_config['api_keys'] = processed_api_keys
 
-        # 기타 설정은 직접 복사 (처리되지 않은 최상위 키들)
+        # Directly copy other settings (unprocessed top-level keys)
         for key, value in raw_config.items():
-            if key not in ['database', 'api_keys']: # 이미 처리된 섹션은 제외
+            if key not in ['database', 'api_keys']: # Exclude already processed sections
                 processed_config[key] = value
         
         return processed_config
 
     except yaml.YAMLError as exc:
-        logger.critical(f"config.yaml 파일 파싱 오류: {exc}")
-        raise # YAML 파싱 오류 발생 시 예외 발생
+        logger.critical(f"Error parsing config.yaml file: {exc}")
+        raise # Re-raise exception on YAML parsing error
     except Exception as e:
-        logger.critical(f"설정 파일 로드 중 예상치 못한 오류가 발생했습니다: {e}", exc_info=True)
-        raise # 기타 예상치 못한 오류 발생 시 예외 발생
+        logger.critical(f"An unexpected error occurred while loading the configuration file: {e}", exc_info=True)
+        raise # Re-raise any other unexpected errors
 
-# 스크립트가 import될 때 CONFIG 전역 변수를 로드
+# Load the global CONFIG variable when the script is imported
 try:
-    CONFIG.update(load_config()) # 전역 CONFIG 딕셔너리를 업데이트
+    CONFIG.update(load_config()) # Update the global CONFIG dictionary
 except Exception as e:
-    # 이 오류는 로깅 시스템이 완전히 준비되기 전에 발생할 수 있습니다.
-    # 따라서 sys.stderr를 통해 직접 출력하고 프로그램을 종료합니다.
-    print(f"CRITICAL ERROR: 설정 파일 로드 중 심각한 오류가 발생하여 프로그램이 종료됩니다: {e}", file=sys.stderr)
+    # This error might occur before the logging system is fully ready.
+    # Therefore, print directly to sys.stderr and exit the program.
+    print(f"CRITICAL ERROR: A critical error occurred while loading the configuration file. Program will terminate: {e}", file=sys.stderr)
     sys.exit(1)
 
-# 테스트를 위한 코드 (선택 사항)
+# Code for testing (optional)
 if __name__ == "__main__":
-    # 이 블록은 config_loader.py 파일을 직접 실행할 때만 작동합니다.
-    # 테스트를 위해 간단한 로깅을 여기서 설정할 수 있습니다.
+    # This block runs only when config_loader.py is executed directly.
+    # Simple logging can be set up here for testing purposes.
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     
-    logger.info("config_loader.py를 직접 실행하여 설정 로드 테스트:")
-    logger.info(f"프로젝트 루트: {PROJECT_ROOT}")
-    logger.info(f".env 경로: {DOTENV_PATH}")
-    logger.info(f"config.yaml 경로: {CONFIG_YAML_PATH}")
+    logger.info("Testing config loading by running config_loader.py directly:")
+    logger.info(f"Project Root: {PROJECT_ROOT}")
+    logger.info(f".env Path: {DOTENV_PATH}")
+    logger.info(f"config.yaml Path: {CONFIG_YAML_PATH}")
     
     if 'api_keys' in CONFIG:
-        logger.info("\nAPI Keys (일부 마스킹):")
+        logger.info("\nAPI Keys (partially masked):")
         for key, value in CONFIG['api_keys'].items():
-            if value and len(str(value)) > 4: # 값의 타입을 확인하고 길이 체크
-                logger.info(f"  {key}: {str(value)[:4]}...") # 앞 4자리만 보여주고 마스킹
+            if value and len(str(value)) > 4: # Check type of value and length
+                logger.info(f"  {key}: {str(value)[:4]}...") # Show only first 4 characters and mask
             else:
                 logger.info(f"  {key}: {value}")
     else:
-        logger.warning("config.yaml에 'api_keys' 섹션이 없습니다.")
+        logger.warning("No 'api_keys' section found in config.yaml.")
 
     if 'data_sources' in CONFIG:
-        logger.info("\nData Sources (일부):")
+        logger.info("\nData Sources (partial):")
         if 'fmp_symbols' in CONFIG['data_sources']:
             logger.info(f"  FMP Symbols count: {len(CONFIG['data_sources']['fmp_symbols'])}")
         if 'fred_series' in CONFIG['data_sources']:
             logger.info(f"  FRED Series count: {len(CONFIG['data_sources']['fred_series'])}")
     else:
-        logger.warning("config.yaml에 'data_sources' 섹션이 없습니다.")
+        logger.warning("No 'data_sources' section found in config.yaml.")

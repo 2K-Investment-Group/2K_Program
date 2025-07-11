@@ -21,18 +21,7 @@ def create_tables():
                 timestamp TIMESTAMPTZ NOT NULL,
                 open NUMERIC,
                 high NUMERIC,
-                low NUMERIC,
-                close NUMERIC,
-                volume BIGINT,
-                PRIMARY KEY (symbol, timestamp)
-            );
-            SELECT create_hypertable('stock_ohlcv', 'timestamp', if_not_exists => TRUE);
-        """)
-
-        # 암호화폐 OHLCV 테이블 (TimescaleDB Hypertable)
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS crypto_ohlcv (
-                symbol VARCHAR(20) NOT NULL,
+                low NUMERIC, 
                 timestamp TIMESTAMPTZ NOT NULL,
                 open NUMERIC,
                 high NUMERIC,
