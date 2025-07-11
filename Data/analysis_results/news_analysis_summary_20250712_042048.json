@@ -1,0 +1,889 @@
+{
+    "sentiment_over_time": {
+        "2025-06-30": 0.0,
+        "2025-07-10": 0.0,
+        "2025-07-11": 0.0
+    },
+    "top_topics": {
+        "Financial Markets": 472.22727600000127,
+        "Earnings": 362.59880299999986,
+        "Technology": 159.71665800000002,
+        "Finance": 128.38332799999995,
+        "Manufacturing": 123.83332399999995,
+        "Life Sciences": 95.66666099999998,
+        "Energy & Transportation": 77.51666500000002,
+        "Blockchain": 52.89376799999995,
+        "Real Estate & Construction": 42.366664000000014,
+        "Retail & Wholesale": 34.51666399999999,
+        "Economy - Monetary": 33.90242999999994,
+        "IPO": 9.631237000000002,
+        "Mergers & Acquisitions": 7.244820000000001,
+        "Economy - Fiscal": 2.6886280000000005,
+        "Economy - Macro": 2.060747
+    },
+    "api_source_sentiment": {
+        "AlphaVantage": 0.0
+    },
+    "top_ticker_sentiment": {
+        "AAPL": {
+            "mentions": 16,
+            "average_sentiment_score": 0.16110218749999997,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 3,
+                "Somewhat-Bullish": 4,
+                "Neutral": 9,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "MSFT": {
+            "mentions": 30,
+            "average_sentiment_score": 0.10445043333333334,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 8,
+                "Neutral": 21,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "GOOG": {
+            "mentions": 39,
+            "average_sentiment_score": 0.08991266666666668,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 11,
+                "Neutral": 25,
+                "Somewhat-Bearish": 1,
+                "Bearish": 0
+            }
+        },
+        "SMCI": {
+            "mentions": 1,
+            "average_sentiment_score": 0.2014,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "NVDA": {
+            "mentions": 45,
+            "average_sentiment_score": 0.15301666666666663,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 5,
+                "Somewhat-Bullish": 11,
+                "Neutral": 29,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "TSLA": {
+            "mentions": 21,
+            "average_sentiment_score": 0.1280735714285714,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 4,
+                "Somewhat-Bullish": 4,
+                "Neutral": 12,
+                "Somewhat-Bearish": 1,
+                "Bearish": 0
+            }
+        },
+        "AMZN": {
+            "mentions": 15,
+            "average_sentiment_score": 0.26442153333333335,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 3,
+                "Somewhat-Bullish": 8,
+                "Neutral": 4,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "AMD": {
+            "mentions": 7,
+            "average_sentiment_score": 0.11846142857142859,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 2,
+                "Neutral": 5,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "CRYPTO:BTC": {
+            "mentions": 84,
+            "average_sentiment_score": 0.1631890357142857,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 14,
+                "Somewhat-Bullish": 24,
+                "Neutral": 43,
+                "Somewhat-Bearish": 3,
+                "Bearish": 0
+            }
+        },
+        "META": {
+            "mentions": 44,
+            "average_sentiment_score": 0.09442199999999999,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 9,
+                "Neutral": 34,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "NFLX": {
+            "mentions": 13,
+            "average_sentiment_score": 0.2500350769230769,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 8,
+                "Neutral": 3,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "INTC": {
+            "mentions": 7,
+            "average_sentiment_score": 0.15946514285714283,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 1,
+                "Neutral": 4,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "IBM": {
+            "mentions": 1,
+            "average_sentiment_score": 0.417384,
+            "overall_sentiment_label": "Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 0,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "ORCL": {
+            "mentions": 4,
+            "average_sentiment_score": 0.29315725000000004,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 3,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "CSCO": {
+            "mentions": 2,
+            "average_sentiment_score": 0.2286665,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 0,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "ADBE": {
+            "mentions": 2,
+            "average_sentiment_score": 0.368105,
+            "overall_sentiment_label": "Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 0,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "AVGO": {
+            "mentions": 5,
+            "average_sentiment_score": 0.1865818,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 3,
+                "Neutral": 2,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "QCOM": {
+            "mentions": 6,
+            "average_sentiment_score": 0.14728566666666668,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 3,
+                "Neutral": 3,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "ASML": {
+            "mentions": 2,
+            "average_sentiment_score": 0.22556,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "AMAT": {
+            "mentions": 2,
+            "average_sentiment_score": 0.256322,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 0,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "MU": {
+            "mentions": 1,
+            "average_sentiment_score": 0.269138,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "TXN": {
+            "mentions": 1,
+            "average_sentiment_score": 0.340488,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "LRCX": {
+            "mentions": 3,
+            "average_sentiment_score": 0.31951833333333335,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 0,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "TSM": {
+            "mentions": 5,
+            "average_sentiment_score": 0.04228540000000001,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 4,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "ON": {
+            "mentions": 1,
+            "average_sentiment_score": 0.129299,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 0,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "MRVL": {
+            "mentions": 1,
+            "average_sentiment_score": -0.095624,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 0,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "PLTR": {
+            "mentions": 6,
+            "average_sentiment_score": 0.183779,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 3,
+                "Neutral": 2,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "RIVN": {
+            "mentions": 1,
+            "average_sentiment_score": 0.008064,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 0,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "LCID": {
+            "mentions": 1,
+            "average_sentiment_score": 0.237389,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "NIO": {
+            "mentions": 2,
+            "average_sentiment_score": 0.2377465,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 2,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "XPEV": {
+            "mentions": 3,
+            "average_sentiment_score": 0.449549,
+            "overall_sentiment_label": "Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "F": {
+            "mentions": 2,
+            "average_sentiment_score": -0.08142949999999999,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 0,
+                "Neutral": 2,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "GM": {
+            "mentions": 2,
+            "average_sentiment_score": 0.32982900000000004,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "ENPH": {
+            "mentions": 3,
+            "average_sentiment_score": -0.009723333333333339,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 1,
+                "Somewhat-Bearish": 1,
+                "Bearish": 0
+            }
+        },
+        "XOM": {
+            "mentions": 4,
+            "average_sentiment_score": 0.17511400000000002,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 3,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "CVX": {
+            "mentions": 3,
+            "average_sentiment_score": 0.4019793333333333,
+            "overall_sentiment_label": "Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "COP": {
+            "mentions": 1,
+            "average_sentiment_score": 0.083615,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 0,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "SLB": {
+            "mentions": 1,
+            "average_sentiment_score": -0.008998,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 0,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "BP": {
+            "mentions": 1,
+            "average_sentiment_score": 0.336593,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "PSX": {
+            "mentions": 2,
+            "average_sentiment_score": 0.4124025,
+            "overall_sentiment_label": "Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 0,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "JNJ": {
+            "mentions": 9,
+            "average_sentiment_score": 0.13467677777777776,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 3,
+                "Neutral": 6,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "PFE": {
+            "mentions": 6,
+            "average_sentiment_score": 0.17120916666666666,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 2,
+                "Neutral": 3,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "ABBV": {
+            "mentions": 3,
+            "average_sentiment_score": 0.36022166666666666,
+            "overall_sentiment_label": "Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "LLY": {
+            "mentions": 2,
+            "average_sentiment_score": 0.286416,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "UNH": {
+            "mentions": 5,
+            "average_sentiment_score": 0.1431104,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 2,
+                "Neutral": 3,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "TMO": {
+            "mentions": 1,
+            "average_sentiment_score": 0.552573,
+            "overall_sentiment_label": "Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 0,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "ABT": {
+            "mentions": 1,
+            "average_sentiment_score": 0.157193,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "BMY": {
+            "mentions": 3,
+            "average_sentiment_score": 0.147988,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 2,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "VRTX": {
+            "mentions": 2,
+            "average_sentiment_score": 0.07124749999999999,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "BAC": {
+            "mentions": 12,
+            "average_sentiment_score": 0.07917858333333333,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 5,
+                "Neutral": 7,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "WFC": {
+            "mentions": 15,
+            "average_sentiment_score": 0.09195333333333332,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 3,
+                "Neutral": 11,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "GS": {
+            "mentions": 14,
+            "average_sentiment_score": 0.09861442857142856,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 2,
+                "Neutral": 11,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "MS": {
+            "mentions": 21,
+            "average_sentiment_score": 0.053328047619047615,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 2,
+                "Neutral": 18,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "SCHW": {
+            "mentions": 5,
+            "average_sentiment_score": 0.2367908,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 3,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "PYPL": {
+            "mentions": 3,
+            "average_sentiment_score": 0.013120666666666664,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 0,
+                "Neutral": 3,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "MA": {
+            "mentions": 5,
+            "average_sentiment_score": 0.28077620000000003,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 2,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "V": {
+            "mentions": 4,
+            "average_sentiment_score": 0.17970025,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 2,
+                "Neutral": 2,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "BABA": {
+            "mentions": 8,
+            "average_sentiment_score": 0.21094225,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 3,
+                "Somewhat-Bullish": 2,
+                "Neutral": 3,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "JD": {
+            "mentions": 1,
+            "average_sentiment_score": 0.12947,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 0,
+                "Neutral": 1,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "BIDU": {
+            "mentions": 1,
+            "average_sentiment_score": 0.156819,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "CRYPTO:ETH": {
+            "mentions": 40,
+            "average_sentiment_score": 0.1481269,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 6,
+                "Somewhat-Bullish": 13,
+                "Neutral": 18,
+                "Somewhat-Bearish": 2,
+                "Bearish": 1
+            }
+        },
+        "CRYPTO:SOL": {
+            "mentions": 2,
+            "average_sentiment_score": 0.19996,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 2,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "CRYPTO:ADA": {
+            "mentions": 3,
+            "average_sentiment_score": 0.187399,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 0,
+                "Neutral": 2,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "CRYPTO:XRP": {
+            "mentions": 13,
+            "average_sentiment_score": 0.23641907692307693,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 6,
+                "Neutral": 5,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "CRYPTO:DOGE": {
+            "mentions": 12,
+            "average_sentiment_score": 0.19900074999999998,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 6,
+                "Neutral": 5,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "CRYPTO:LINK": {
+            "mentions": 1,
+            "average_sentiment_score": 0.271629,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        }
+    },
+    "llm_generated_insights": {
+        "AAPL": "애플(AAPL) 주식 분석 보고서 (2024.10.27)\n\n**종합적인 투자 심리:** 긍정적 신호와 부정적 신호가 혼재되어 있습니다.  주요 경쟁사들의 강세 (Nvidia, Microsoft 등) 와 기업용 기기 수요 증가에 따른 애플의 성장세가 긍정적 요인으로 작용하지만,  시장 전반의 불확실성(고금리 위험 등)은 투자 심리를 압박하는 요소입니다.  제공된 기사만으로는 명확한 방향을 제시하기 어렵습니다.\n\n**주요 요인:**  기사들은 애플의 성장을 뒷받침하는 주요 요인으로 기업용 기기 수요 증가를 지적하고 있습니다.  반면,  전반적인 거시경제적 불확실성과 경쟁사들의 강세는 투자 결정에 신중을 기해야 함을 시사합니다.  애플 자체의 실적이나 사업 전략에 대한 구체적인 언급은 부족합니다.\n\n**단기 전망:**  제공된 정보만으로는 단기 전망을 명확하게 예측하기 어렵습니다.  기업용 기기 수요의 지속 여부, 경쟁 환경의 변화, 그리고 거시경제 상황의 불확실성 등을 면밀히 관찰해야 합니다.  추가적인 정보 및 분석이 필요합니다.  신중한 접근이 요구됩니다.",
+        "MSFT": "MSFT 주식에 대한 간략 보고서\n\n**전반적인 투자 심리:** 혼조세. 제공된 기사에서는 MSFT에 대한 직접적인 분석이 부족합니다. 다만, 다른 기술주들 (Nvidia, Apple)의 강세와 대조적으로 마벨(Marvell)의 부진을 언급하며 MSFT의 상대적 강세를 간접적으로 시사하고 있습니다.  마이크로컴퓨터 산업의 호황에 대한 언급도 있으나, 이는 MSFT에 국한된 정보는 아닙니다.\n\n**주요 요인:**  MSFT에 대한 직접적인 긍정적 또는 부정적 뉴스는 없습니다.  다른 기술주들의 성과와 마이크로컴퓨터 산업 전반의 호황이 MSFT의 간접적인 긍정적 요인으로 작용할 수 있습니다.  그러나, 높은 금리 위험에 대한 우려 (JPMorgan Dimon 발언)는 전반적인 시장 분위기에 부정적 영향을 줄 수 있으며, 이는 MSFT에도 간접적으로 영향을 미칠 수 있습니다.\n\n**단기 전망:** 제공된 기사만으로는 MSFT의 단기 전망을 명확히 예측하기 어렵습니다.  다른 기술주들의 강세와 마이크로컴퓨터 산업의 호황은 긍정적인 신호이나, 거시경제적 불확실성과 높은 금리 위험은 부정적인 요소로 작용할 수 있습니다.  따라서, MSFT의 단기 전망은 혼조세를 유지할 가능성이 높습니다. 더 자세한 분석을 위해 추가 정보가 필요합니다.",
+        "GOOG": "구글(GOOG) 주식에 대한 보고서 (2025년 7월 11일)\n\n**전반적인 투자 심리:** 제공된 뉴스 기사만으로는 GOOG 주식에 대한 직접적인 언급이 없으므로,  긍정적, 부정적, 혼합적 어떤 심리도 판단할 수 없습니다.  관련 정보가 부족합니다.\n\n**주요 요인:** 제공된 기사들은 모두 GOOG와는 무관한 다른 기업들의 뉴스입니다.  Check Point Software의 제로 트러스트 플랫폼 평가,  Podcast 런칭 소식, Glidelogic의 AI 소설 발표, 그리고 여러 기업을 대상으로 한 집단 소송 관련 내용이 주를 이룹니다.  따라서 GOOG 주가에 영향을 미치는 주요 요인을 파악할 수 없습니다.\n\n**단기 전망:**  제공된 자료에는 GOOG에 대한 정보가 없으므로 단기 전망을 예측할 수 없습니다.  GOOG 주식의 단기 전망을 분석하려면 GOOG 관련 뉴스 기사가 필요합니다.\n\n\n**결론:**  제공된 자료만으로는 GOOG 주식에 대한 분석이 불가능합니다.  GOOG 관련 정보를 제공해주시면 보다 정확한 분석을 제공해 드리겠습니다.",
+        "SMCI": "SMCI 주식에 대한 분석 보고서 (내부 자료)\n\n**주요 내용:**\n\n**1. 전반적인 투자 심리:** 혼조세.  VRT와의 경쟁 구도가 언급되면서 SMCI의 단기 전망에 대한 불확실성이 존재합니다.  수익성 측면에서 VRT와의 비교 분석이 제시되었으나, 명확한 우위를 점치기는 어렵습니다.\n\n\n**2. 주요 요인:** AI 기반 액체 냉각 시장에서 VRT와의 경쟁이 주요 뉴스의 핵심 동인입니다.  두 회사의 수익률 차이가 투자 결정에 영향을 미치는 중요한 요소로 부각됩니다.\n\n\n**3. 단기 전망:**  제공된 기사만으로는 SMCI 주식의 단기 전망을 명확하게 예측하기 어렵습니다. VRT와의 경쟁 결과와 SMCI의 향후 수익성에 대한 추가 정보가 필요합니다.  현재로서는 긍정적이거나 부정적인 전망을 제시하기에는 자료가 부족합니다.  지속적인 모니터링이 필요합니다.",
+        "NVDA": "NVDA 주식에 대한 분석 보고서 (2024.10.27)\n\n**1. 전반적인 투자 심리:** 혼조세.  제공된 기사만으로는 NVDA에 대한 직접적인 언급이 제한적입니다.  다만,  S&P 500 지수 상승에도 불구하고 비트코인 대비 수익률 저조 및  경쟁사인 Intel의 AI 사업 분사, Marvell의 부진 등의 뉴스는  기술주 전반에 대한 불확실성을 반영하며, NVDA의 단기 전망에도 부정적인 영향을 미칠 가능성이 있습니다.  Pelosi 의원의 NVDA 주식 매입은 긍정적 신호일 수 있으나,  단독으로는 전체적인 시장 심리를 낙관적으로 바꾸기에는 부족합니다.\n\n**2. 주요 원인:**  기사들은 NVDA를 직접적으로 다루지 않고 있으나,  AI 및 기술주 전반의 시장 동향이 NVDA의 주가에 영향을 미치는 주요 원인으로 추정됩니다.  비트코인과 AI 기술주 간의 상관관계 강화,  경쟁사들의 기술 개발 및 사업 전략 변화,  전반적인 시장 변동성 등이  NVDA의 주가에 간접적으로 작용할 수 있습니다.\n\n**3. 단기 전망:** 불확실.  제공된 정보만으로는 NVDA의 단기 전망을 명확히 예측하기 어렵습니다.  기술주 전반의 성장세 지속 여부,  경쟁사들의 움직임,  시장의 전반적인 투자 심리 등 여러 요인을 고려해야 합니다.  긍정적인 측면으로는 Pelosi 의원의 투자가 있지만,  부정적인 측면으로는 기술주 시장의 변동성과 경쟁 심화가 존재합니다.  따라서, 추가적인 정보 및 분석 없이는 단정적인 전망을 내리기 어렵습니다.\n\n\n**면책 조항:** 본 보고서는 제공된 기사에 근거한 분석이며,  투자 권고가 아님을 알려드립니다.  투자 결정은  개별 투자자의 책임이며,  더욱 광범위한 정보 및 전문가의 조언을 고려해야 합니다.",
+        "TSLA": "테슬라(TSLA) 주가 전망 보고서\n\n**전반적인 시장 심리:** 부정적. JP모건의 테슬라 매도 권고가 주요 원인입니다.  높은 주가수익비율(P/E)과 수익성 감소 우려가 투자 심리를 악화시키고 있습니다.  다른 뉴스는 테슬라와 직접적인 관련이 없어 시장 심리에 미치는 영향은 제한적입니다.\n\n**주요 요인:** JP모건의 테슬라와 리비안에 대한 매도 권고가 가장 큰 요인입니다.  보고서는 테슬라의 높은 P/E 비율과 경기 침체 우려를 근거로 제시하고 있습니다. 정부 보조금 감소 또한 부정적 요인으로 작용할 가능성이 있습니다.\n\n**단기 전망:** 단기적으로는 부정적인 전망이 우세합니다. JP모건과 같은 대형 투자은행의 매도 권고는 주가 하락 압력으로 작용할 가능성이 높습니다.  그러나,  다른 뉴스들은 테슬라에 대한 직접적인 영향이 제한적이므로,  전망은 JP모건의 분석에 크게 의존합니다.  추가적인 정보 없이는 단기 전망에 대한 명확한 결론을 내리기 어렵습니다.",
+        "AMZN": "AMZN 주식에 대한 간략 보고서 (Confidential)\n\n**전반적인 투자 심리:** 혼조세. 제공된 뉴스 기사만으로는 AMZN에 대한 명확한 긍정적 또는 부정적 전망을 도출하기 어렵습니다.  경쟁사인 MercadoLibre의 브라질 시장 어려움(관세 영향)은 간접적으로 AMZN에 긍정적일 수 있으나,  기사 자체는 AMZN의 직접적인 성과에 대한 언급이 부족합니다.  다른 기사들은 광범위한 시장 분석이나 경쟁사 비교,  다른 성장주와의 비교, 또는 무관한 종목의 분석에 집중되어 있어 AMZN 주식에 대한 직접적인 정보를 제공하지 않습니다.\n\n\n**주요 요인:**  제공된 자료에서는 AMZN의 주가 움직임을 설명할 만한 명확한 단일 요인을 확인할 수 없습니다. 브라질 관세로 인한 MercadoLibre의 어려움은 간접적인 영향 요소로 볼 수 있으나,  이는 추측에 불과하며, AMZN의 실적, 경쟁 환경, 또는 규제 관련 뉴스는 기사에서 명시적으로 다뤄지지 않았습니다.\n\n\n**단기 전망:** 제공된 정보만으로는 AMZN의 단기 전망을 예측하기 어렵습니다.  더 많은 정보, 특히 AMZN의 재무 실적, 시장 점유율 변화,  주요 사업 부문의 성장률 등에 대한 데이터가 필요합니다. 현재로서는 중립적인 입장을 유지하는 것이 적절합니다.  추가 분석을 위해 더욱 구체적인 정보 수집이 필요합니다.",
+        "AMD": "AMD에 대한 간략한 분석 보고서 (내부 자료 참조)\n\n**전반적인 투자 심리:** 혼조세. 제공된 뉴스 기사만으로는 AMD에 대한 명확한 긍정적 또는 부정적 시그널을 도출하기 어렵습니다.  AMD가 잠재적 매수 대상으로 언급되긴 하였으나(5 Top Bargain Stocks),  긍정적인 뉴스는 제한적이며, 경쟁사인 Marvell의 부진과 AI 칩 시장의 경쟁 심화(NVIDIA 등과의 비교)를 시사하는 기사도 존재합니다.  따라서 단순히  '긍정적' 또는 '부정적'으로 단정짓기는 어렵습니다.\n\n**주요 요인:**  주요 요인은 명확하게 드러나지 않았습니다.  다만, AMD가 Zacks.com 사용자들 사이에서 주목받고 있는 종목이라는 점(Trending Stock), 그리고  AI 칩 시장 내 경쟁 심화(NVIDIA와의 비교 언급)가 투자 결정에 영향을 미칠 수 있는 요소로 판단됩니다.  Marvell의 부진은 간접적으로 AMD의 시장 경쟁력을 평가하는 데 참고 자료가 될 수 있습니다.  ETF 편입 여부 등은 언급되지 않았습니다.\n\n**단기 전망:** 불확실성이 높습니다.  단기적인 상승 가능성을 시사하는 기사도 있으나(Bargain Stocks),  시장 경쟁 심화 및  전반적인 경제 상황에 대한 불확실성을 고려해야 합니다. 추가적인 정보 없이는 낙관적 또는 비관적인 전망을 제시하기 어렵습니다.  추가적인 재무 정보 및 시장 분석이 필요합니다.",
+        "CRYPTO:BTC": "CRYPTO:BTC에 대한 분석 보고서 (요약)\n\n**전반적인 시장 심리:** 혼조세. 비트코인 가격은 $117,000 수준을 유지하며, 거래소 보유량 감소로 인한 매도 압력 완화 기대감이 존재합니다.  하지만,  미-중 무역 분쟁 재연 가능성 및 거시경제 불확실성(예: 미국 재무부의 예상치 못한 흑자 발표에도 불구하고,  무역 관세 관련 우려 지속)이 시장 심리에 부정적인 영향을 미칠 수 있습니다.  GMX 해킹 사건의 경우, 일부 자금 반환으로 인한 부정적 영향은 제한적입니다.  S&P 500 지수의 상승에도 불구하고 비트코인 대비 저조한 성과는 비트코인의 상대적 강세를 시사하지만,  절대적인 가격 움직임과는 별개의 평가입니다.\n\n**주요 요인:** 비트코인 가격 움직임은 4년 주기론에 대한 기대와 거래소 보유량 감소에 따른 매도 압력 완화 가능성에 영향을 받고 있습니다.  반면, 미중 무역 분쟁 재점화 가능성과  거시 경제적 불확실성은 투자 심리에 부정적인 영향을 주는 요인입니다.  GMX 해킹 사건은 시장에 미치는 영향이 제한적입니다.\n\n**단기 전망:** 단기적으로는 혼조세가 예상됩니다. 비트코인 가격은 $117,000 수준을 유지할 가능성이 높으나, 미중 무역 분쟁 및 거시 경제 불확실성의 진행 상황에 따라 변동성이 클 것으로 예상됩니다.  4년 주기론에 대한 기대와 거래소 보유량 감소는 상승 가능성을 지지하지만,  위험 요인들의 영향력 또한 무시할 수 없습니다.  따라서,  신중한 접근이 필요합니다.",
+        "META": "제공된 기사에는 META(페이스북 모회사)에 대한 정보가 전혀 포함되어 있지 않습니다. 따라서 META 주식에 대한 감정, 주요 원인, 단기 전망을 분석할 수 없습니다.  기사들은 Check Point, Organon, Rocket Pharmaceuticals, Red Cat Holdings 등 다른 기업들에 대한 소송 관련 정보와 컴퓨터 산업 동향을 다루고 있으며 META와는 무관합니다.  META 주식 분석을 위해서는 META 관련 뉴스 기사를 제공해주시기 바랍니다.",
+        "NFLX": "넷플릭스(NFLX) 주식에 대한 분석 보고서\n\n**전반적인 시장 분위기:** 혼조세.  넷플릭스 주식은 7분기 연속 상승세를 보이고 있으나,  전반적인 시장 지수의 변동성(S&P 500 지수의 상승과 하락, 트럼프의 관세 위협 등) 및 경쟁사(FOX)와의 비교 분석 등으로 인해 단정적인 낙관론을 제시하기는 어렵습니다.\n\n**주요 요인:**  넷플릭스의 7분기 연속 실적 상승세가 주요 긍정적 요인입니다.  \"오징어 게임: 챌린지\" 시즌2 방영일 발표 및 시즌3 제작 소식은  프랜차이즈 확장 및 성장 가능성을 시사합니다.  반면,  시장 전반의 불확실성 (관세 위협 등)과 경쟁사와의 가치 비교 분석은 투자 결정에 신중을 기해야 함을 시사합니다.\n\n**단기 전망:**  단기적인 전망은 불확실합니다. 긍정적인 실적 발표와 프랜차이즈 확장에도 불구하고, 거시 경제적 요인과 경쟁 환경을 고려해야 합니다.  추가적인 정보(예: 다음 분기 실적 발표)가  더욱 명확한 전망을 제시할 것입니다.  현 시점에서는 신중한 접근이 필요합니다.",
+        "INTC": "**INTC 주식 분석 보고서 (2025년 7월)**\n\n**요약:**  INTC (Intel) 주식에 대한 시장 심리는 대체로 긍정적입니다.  이는 주로 새로운 세금 및 규제 정책(OBBB 법안)의 긍정적 영향과 대규모 투자자들의 강세 전망에 기인합니다.  반면, 경쟁사인 Broadcom의 AI 시장 점유율 확대는 상대적 위험 요소로 작용할 수 있습니다.\n\n**주요 요인:**\n\n* **OBBB 법안 통과:** 새로운 법안이 INTC에 긍정적 영향을 미칠 것으로 예상됩니다. 구체적인 내용은 제시되지 않았으나, 시장의 긍정적 반응으로 나타나고 있습니다.\n* **RealSense 독립:**  AI, 로봇, 생체 인식 사업부인 RealSense의 독립은 회사의 전략적 재편 및 성장 동력 확보 시도로 해석됩니다.  장기적 전망에 긍정적 영향을 미칠 가능성이 있으나, 단기적 영향은 불확실합니다.\n* **대규모 투자자들의 강세 전망:**  공개된 옵션 거래 데이터를 바탕으로, 대규모 투자자들이 INTC 주식에 대한 매수세를 보이고 있습니다. 이는 시장 심리에 긍정적으로 작용합니다.\n* **경쟁 심화:** Broadcom의 AI 시장 성장은 INTC에 대한 상대적 경쟁 우려를 불러일으킬 수 있습니다.\n\n\n**단기 전망:**\n\n현재 시장 정보만을 바탕으로 볼 때, INTC 주식의 단기 전망은 긍정적입니다. OBBB 법안의 긍정적 영향과 대규모 투자자들의 강세 전망이 주가 상승을 견인할 가능성이 높습니다.  하지만 RealSense 독립의 단기적 효과와 Broadcom을 포함한 경쟁 환경의 변화는 지속적인 모니터링이 필요합니다.  추가적인 정보가 필요하며, 본 분석은 제공된 자료에만 기반한 제한적인 분석임을 유의해야 합니다.",
+        "IBM": "IBM 주식에 대한 간략 보고서 (2024.10.27)\n\n**종합적인 투자 심리:** 긍정적\n\n**주요 요인:**  2025년 하반기 강력한 수익 모멘텀이 기대된다는 보도가 IBM에 대한 긍정적 투자 심리를 주도하고 있습니다.  비자, 디즈니, 마이크로소프트, 코카콜라와 함께 언급된 점은 IBM의 재무적 건전성과 안정성을 시사합니다.\n\n**단기 전망:**  제공된 기사만으로는 단기적인 주가 움직임을 정확히 예측하기 어렵습니다. 하지만 강력한 수익 모멘텀 전망은 IBM 주식의 단기적 상승 가능성을 암시합니다.  추가적인 정보와 분석 없이 단정적인 의견을 제시하기는 어렵습니다.  추후 추가적인 자료 분석을 통해 더욱 정확한 전망을 제공하겠습니다.",
+        "ORCL": "**ORCL 주식 분석 보고서**\n\n**1. 전반적인 투자 심리:** 긍정적.  최근 실적 발표 이후 주가 상승 (17.6%) 및 사상 최고가 경신(228달러) 등의 긍정적 뉴스가 주를 이룹니다. 클라우드 및 AI 인프라 부문의 성장에 대한 기대감도 투자 심리를 긍정적으로 만들고 있습니다.  단, 지속 가능성에 대한 의문도 제기되고 있습니다.\n\n**2. 주요 요인:** 주요 요인은 오라클의 클라우드 및 AI 사업 부문의 성장세입니다.  \"Stargate 프로젝트\"에 대한 긍정적 전망 또한 주가 상승에 기여했습니다.  높은 성장 잠재력 대비 저평가되었다는 시각도 존재합니다.  최근 실적 발표 또한 주가 상승의 촉매제 역할을 했습니다.\n\n**3. 단기 전망:** 단기적으로는 긍정적 전망이 우세하지만, 지속 가능성 여부는 추가적인 데이터 분석이 필요합니다.  클라우드 및 AI 시장 경쟁 심화 및 실적 지속 여부가 향후 주가 움직임을 결정하는 중요한 변수가 될 것입니다.  현재 주가는 고점에 도달했으므로 단기적인 조정 가능성도 배제할 수 없습니다.  추가적인 분석 및 리스크 관리가 필요합니다.",
+        "CSCO": "씨스코(CSCO) 주식에 대한 간략 보고서\n\n**전반적인 투자심리:** 혼조세.  제공된 기사는 씨스코의 인공지능 인프라 부문 성장 가능성을 언급하지만,  직접적인 주가 전망이나 평가는 제시하지 않습니다.  델과의 비교 분석 기사는 투자 결정에 도움이 될 수 있는 정보를 제공하지만, 씨스코에 대한 명확한 긍정적 또는 부정적 시그널은 부재합니다.  VALQ ETF 관련 기사는 씨스코 주식에 대한 직접적인 정보를 제공하지 않습니다.\n\n**주요 요인:** 주요 요인은 인공지능 인프라 시장의 성장과 델과 같은 경쟁사와의 시장 점유율 경쟁입니다.  현재 시장의 수요 증가가 씨스코에 긍정적 영향을 미칠 수 있으나,  경쟁 환경 또한 고려해야 합니다.\n\n**단기 전망:**  제공된 정보만으로는 단기적인 주가 전망을 예측하기 어렵습니다.  더 많은 정보 (예: 실적 발표, 투자자 컨퍼런스 내용) 가 필요합니다.  인공지능 인프라 시장의 지속적인 성장세와 씨스코의 경쟁력 유지 여부가 주가에 중요한 영향을 미칠 것으로 예상됩니다.",
+        "ADBE": "ADBE 주식 분석 보고서 (요약)\n\n**전반적인 투자 심리:** 혼조세.  옵션 거래 분석 결과, 상당수의 대규모 투자자들이 비관적인 전망을 보이고 있으나(40%), 일부는 낙관적인 입장을 유지하고 있습니다(34%).  장기 투자 관점에서는 지난 10년간 시장 대비 높은 수익률(연평균 16.1%)을 기록한 바 있습니다.\n\n**주요 요인:** 최근 옵션 거래에서 나타난 대규모 투자자들의 매도 포지션 증가가 단기적인 주가 움직임에 영향을 미치는 주요 요인입니다. 반면, 지난 10년간의 견조한 실적은 장기적인 성장 가능성을 시사합니다.  구체적인 재무 실적이나 제품 출시, 경쟁 환경 등에 대한 정보는 제공되지 않았습니다.\n\n**단기 전망:**  대규모 투자자들의 비관적인 옵션 거래를 고려할 때, 단기적으로는 주가 하락 가능성이 존재합니다. 그러나 장기 투자 관점에서는 지난 10년간의 높은 수익률을 감안할 때,  현재의 비관적인 전망이 장기적인 성장세를 반영하지 못할 가능성도 고려해야 합니다.  추가적인 정보 없이 단정적인 전망은 어렵습니다.",
+        "AVGO": "Error: Failed to generate LLM summary for AVGO.",
+        "QCOM": "Error: Failed to generate LLM summary for QCOM.",
+        "ASML": "Error: Failed to generate LLM summary for ASML.",
+        "AMAT": "Error: Failed to generate LLM summary for AMAT.",
+        "MU": "Error: Failed to generate LLM summary for MU.",
+        "TXN": "Error: Failed to generate LLM summary for TXN.",
+        "LRCX": "Error: Failed to generate LLM summary for LRCX.",
+        "TSM": "Error: Failed to generate LLM summary for TSM.",
+        "ON": "Error: Failed to generate LLM summary for ON.",
+        "MRVL": "Error: Failed to generate LLM summary for MRVL.",
+        "PLTR": "Error: Failed to generate LLM summary for PLTR.",
+        "RIVN": "Error: Failed to generate LLM summary for RIVN.",
+        "LCID": "Error: Failed to generate LLM summary for LCID.",
+        "NIO": "Error: Failed to generate LLM summary for NIO.",
+        "XPEV": "Error: Failed to generate LLM summary for XPEV.",
+        "F": "Error: Failed to generate LLM summary for F.",
+        "GM": "GM에 대한 투자 보고서 (요약)\n\n**전반적인 시장 심정:** 혼조세. 중국 전기차 시장의 급성장은 GM에게 긍정적 신호이나,  중국 시장 철수 가능성에 대한 분석가 의견은 부정적 요소로 작용합니다.  긍정적 요인과 부정적 요인이 공존하여 명확한 방향성을 제시하기 어렵습니다.\n\n**주요 요인:** 중국 자동차 시장, 특히 NEV (신에너지차량) 부문의 성장이 주요 긍정적 요인입니다.  반면,  BofA Securities 분석가의 중국 시장 철수 제안은 GM의 중국 사업 전망에 대한 불확실성을 높이는 부정적 요인입니다.  포드와의 경쟁 또한 GM의 미래 전망에 영향을 미치는 요소입니다.\n\n**단기 전망:**  단기적인 전망은 불확실합니다. 중국 시장의 성장세가 GM에 긍정적인 영향을 미칠 수 있으나, 중국 사업 전략의 불확실성과 경쟁 심화는 투자 결정에 신중을 기해야 함을 시사합니다. 추가 정보 및 시장 분석이 필요합니다.",
+        "ENPH": "ENPH에 대한 투자 보고서 (요약)\n\n**전반적인 투자 심리:** 혼조세.  트럼프 행정부의 관세 부과 및 관련 법안 (OBBBA) 통과로 인해 투자 심리가 악화되었으나,  ENPH의 공매도 비율 증가는 단기적인 부정적 전망을 시사합니다.  긍정적 요인은 현재로서는 제시되지 않았습니다.\n\n**주요 요인:**  미국 관세 정책의 불확실성이 주요 부정적 요인입니다.  OBBBA 법안 통과가 청정에너지 부문에 부정적인 영향을 미칠 것이라는 우려가 투자 심리에 악영향을 미치고 있으며,  높은 공매도 비율 또한 주가 하락 가능성을 높이는 요인입니다.\n\n**단기 전망:** 불확실합니다.  관세 및 법안 통과의 장기적인 영향과 시장 반응을 예측하기 어렵습니다.  높은 공매도 비율은 단기적으로 주가 하락 압력을 가할 가능성이 높으나,  긍정적인 촉매가 없는 한 단기적인 상승세는 기대하기 어렵습니다.  추가적인 정보가 필요합니다.",
+        "XOM": "엑슨모빌(XOM) 주식에 대한 분석 보고서 (내부 자료 용)\n\n**전반적인 투자 심리:** 부정적 (Bearish).  벤징가의 보고에 따르면, 대규모 자본이 엑슨모빌 주식에 대한 공격적 매도 포지션(베어리쉬 옵션 거래)을 취하고 있다는 점이 주목됩니다.  싱가포르 주유소 매각 계획 또한 수익성 높은 저탄소 자산에 대한 집중 전환을 시사하며, 단기적으로는 주가에 부정적인 영향을 미칠 가능성이 있습니다.\n\n**주요 요인:**  대규모 자본의 베어리쉬 옵션 거래가 가장 중요한 요인입니다.  또한 엑슨모빌의 싱가포르 주유소 매각 계획은 저탄소 자산으로의 전환 전략을 보여주지만,  단기적으로는 자산 매각으로 인한 수익 감소 가능성을 시사합니다.  경쟁사인 쉐브론의 저탄소 에너지 투자 확대 소식은 엑슨모빌에 대한 상대적 비교 분석 시 부정적 요소로 작용할 수 있습니다.\n\n**단기 전망:** 부정적. 대규모 자본의 베어리쉬 베팅과 싱가포르 주유소 매각 계획을 고려할 때, 단기적으로 엑슨모빌 주가는 하락 압력을 받을 가능성이 높습니다.  다만, 쉐브론의 사례를 통해 저탄소 에너지 전환이 장기적으로는 긍정적일 수 있으나,  단기적인 수익성 악화 가능성을 배제할 수 없습니다.  추가적인 정보 없이는  매우 신중한 접근이 필요합니다.",
+        "CVX": "**CVX (셰브론) 주식 분석 보고서**\n\n**투자 대상:** [고객명] 귀하\n\n**날짜:** 2024년 10월 26일\n\n**요약:**\n\n**전반적인 시장 심리:** 긍정적.  셰브론의 적극적인 저탄소 에너지 전환 투자 (청색 수소 생산, 탄소 포집, 재생 연료 확대)와  대규모 프로젝트 추진 (텍사스 청색 수소 플랜트 건설, 미국-인도네시아 에너지/농업 부문 투자) 소식이 주가 상승을 견인할 것으로 예상됩니다. 비용 절감 노력 또한 긍정적으로 평가됩니다.\n\n**주요 요인:** 셰브론의 50억 달러 규모 텍사스 청색 수소 플랜트 건설 계획과 미국-인도네시아 340억 달러 규모 에너지 및 농업 투자 계약이 주요 긍정적 요인입니다.  회사의 저탄소 에너지 전환을 위한 적극적인 투자 행보도 시장의 호의적인 평가를 받고 있습니다.\n\n**단기 전망:**  현재 뉴스를 바탕으로 볼 때, 셰브론의 단기 전망은 긍정적입니다.  대규모 투자 계획과 저탄소 에너지 전환 전략은 장기적인 성장 가능성을 제시하며, 이는 주가 상승으로 이어질 수 있습니다.  하지만,  지정학적 리스크, 에너지 시장 변동성, 정부 정책 변화 등 예측 불가능한 요소들이 주가에 영향을 미칠 수 있다는 점을 고려해야 합니다.  추가적인 정보 수집 및 분석을 통해 투자 결정을 내리는 것이 권장됩니다.",
+        "COP": "ConocoPhillips (COP) 주식에 대한 간략 보고서 (Korean)\n\n**전반적인 투자 심리:** 중립적.  공매도 비율 감소(18.66%)는 긍정적인 신호이나,  해당 자료만으로는  COP 주가에 대한 강력한 긍정 또는 부정적 전망을 제시하기에는 정보가 부족합니다.  추가적인 재무 정보 및 시장 분석이 필요합니다.\n\n**주요 요인:** 공매도 비율 감소가 주요 뉴스의 원인입니다.  1,375만 주의 공매도는 유통 주식의 1.09%를 차지하며, 최근 보고서 이후 감소 추세에 있습니다.  다른 요인은 언급되지 않았습니다.\n\n**단기 전망:**  공매도 감소는 잠재적인 상승 압력을 시사하지만,  단기 전망을 확정적으로 예측하기에는 추가적인 정보가 필요합니다.  향후 재무 성과, 시장 경쟁, 업계 동향 등을 고려해야 합니다.  현재로서는 보수적인 접근이 필요합니다.",
+        "SLB": "SLB(슐럼버거) 주식에 대한 간략 보고서\n\n**전반적인 시장 분위기:** 부정적.  다가오는 실적 발표에서 이익 감소가 예상되기 때문입니다. 분석가들은 실적 상회 가능성이 낮다고 전망하고 있습니다.\n\n**주요 요인:** 주된 요인은 다가오는 SLB의 실적 발표에 대한 분석가들의 예상치입니다.  이익 감소가 예상되는 점이 투자 심리에 부정적인 영향을 미칠 것으로 보입니다.  구체적인 이익 감소 원인은 기사에서 명시적으로 언급되지 않았으나,  실적 상회에 필요한 두 가지 주요 요소가 부족하다는 점이 강조되었습니다.\n\n**단기 전망:**  현재 정보만으로는 단기적인 주가 전망을 낙관적으로 예측하기 어렵습니다.  실적 발표 결과에 따라 주가 변동성이 클 것으로 예상되며,  예상치 못한 호재가 없는 한 주가 하락 가능성이 높습니다.  실적 발표를 주의 깊게 모니터링해야 합니다.",
+        "BP": "BP 주식에 대한 분석 보고서 (내부 자료)\n\n**요약:**\n\n**전반적 센티먼트:** 혼조세.  2분기 생산량 증가는 긍정적이나, 저유가로 인한 8억 달러의 수익 감소 예상은 부정적 요소로 작용하여 전반적인 시장 반응은 불확실할 것으로 예상됩니다.\n\n**주요 요인:** 2분기 실적 발표가 주요 뉴스를 이끌고 있습니다. 생산량은 예상치를 상회할 것으로 보이나, 유가 하락이 실적에 상당한 부정적 영향을 미칠 것으로 예상되어 투자자들의 우려를 자아내고 있습니다. 정유 부문의 마진 개선은 긍정적이지만, 원유 가격 하락의 영향력이 더 클 것으로 예상됩니다.\n\n**단기 전망:** 단기적으로는 유가의 움직임과 2분기 실적 발표 내용에 따라 주가가 크게 변동할 가능성이 높습니다.  생산량 증가에도 불구하고, 저유가의 영향이 예상보다 크다면 주가 하락 가능성이 존재합니다.  반대로, 정유 부문의 실적 개선이 유가 하락의 영향을 상쇄한다면 주가는 안정세를 유지하거나 소폭 상승할 수 있습니다.  추가 정보 및 시장 반응을 면밀히 모니터링해야 합니다.",
+        "PSX": "PSX (필립스66) 주식에 대한 간략 보고서\n\n**종합적인 투자 심리:** 혼조세 (Mixed).  한 애널리스트의 매도 의견 변경 소식과 5년간의 우수한 수익률 정보가 동시에 존재하기 때문입니다. 단순히 긍정적이거나 부정적이라고 단정짓기 어렵습니다.\n\n**주요 요인:**  주요 요인은 두 가지입니다. 첫째, 한 애널리스트의 투자 의견 하향 조정은 단기적인 부정적 요인으로 작용합니다.  둘째, 지난 5년간 시장 수익률을 상회하는 높은 수익률 (연평균 16.75%)은 장기적인 성장 가능성을 시사하며 긍정적인 요인입니다.\n\n**단기 전망:**  애널리스트의 매도 의견 변경으로 인한 단기적인 주가 하락 가능성이 존재하지만, 장기적인 성장 잠재력을 고려할 때 단기적인 하락이 지속될지는 불확실합니다. 추가적인 정보 없이는 단기 전망에 대해 명확한 결론을 내리기 어렵습니다.  추가적인 시장 분석 및 재무 정보 검토가 필요합니다.",
+        "JNJ": "JNJ에 대한 투자 보고서 (2024.10.26)\n\n**종합적인 투자 감정:** 혼조세.  JNJ 자체 뉴스는 AI 활용 의료기기 부문의 긍정적 전망과 2025년 2분기 실적 전망을 제시하며 상승 가능성을 시사합니다.  그러나 트럼프 대통령의 캐나다에 대한 관세 부과 발표로 인한 전반적인 시장 약세가 JNJ 주가에 부정적 영향을 미칠 수 있습니다.  따라서 JNJ의 펀더멘탈은 긍정적이지만, 거시 경제적 요인으로 인한 시장 변동성에 주의해야 합니다.\n\n**주요 원인:**  미국과 캐나다 간의 무역 분쟁 심화로 인한 시장 전반의 하락세가 주요 원인입니다.  반면 JNJ의 경우, AI 기반 의료기기 부문의 성장 가능성 및 2025년 2분기 실적 전망은 긍정적인 요소로 작용합니다.  Bayer의 Lynkuet 승인 소식은 JNJ에 직접적인 영향을 미치지는 않으나, 제약 산업 전반의 긍정적 분위기에 기여할 수 있습니다.\n\n**단기 전망:** 단기적으로는 시장 전반의 변동성이 JNJ 주가에 큰 영향을 미칠 것으로 예상됩니다.  관세 분쟁의 해결 여부와 JNJ의 2분기 실적 발표가 주가 향방을 결정하는 중요한 요인이 될 것입니다.  JNJ의 기본적인 사업 성과는 긍정적이지만, 외부 변수에 의한 단기적인 주가 변동 가능성을 고려해야 합니다.  추가적인 정보 입수 후 투자 전략을 재검토하는 것이 권장됩니다.",
+        "PFE": "**PFE 주식 분석 보고서 (2025년 7월 11일)**\n\n**1. 전반적인 투자 심리:** 긍정적\n\n**근거:**  제공된 기사들은 PFE의 향후 실적에 대한 긍정적인 전망(예상치 상회 가능성)을 제시합니다.  경쟁사인 Moderna의 백신 승인 소식은 간접적으로 PFE의 백신 사업에 대한 시장의 긍정적 인식을 반영하며, Zantac 관련 소송에서 유리한 판결을 받은 것도 PFE에 긍정적입니다.  다만, Valneva의 기사는 PFE와 직접적인 관련이 없으므로 PFE에 대한 투자 심리에 미치는 영향은 제한적입니다.\n\n\n**2. 주요 요인:**\n\n* **긍정적 실적 전망:** PFE는 이전 실적을 고려할 때 향후 실적 역시 예상치를 웃돌 가능성이 높다는 분석이 제기되었습니다.\n* **소송전에서의 승리:** 델라웨어 대법원의 Zantac 관련 소송 판결은 PFE에 유리하게 작용하여 법적 리스크를 감소시켰습니다.\n* **경쟁사 동향:** Moderna의 백신 승인은 백신 시장의 성장 가능성을 시사하며,  간접적으로 PFE의 백신 사업 전망에도 긍정적인 영향을 미칠 수 있습니다.\n\n\n**3. 단기 전망:**\n\n제공된 정보만을 바탕으로 볼 때, PFE의 단기 전망은 긍정적입니다.  긍정적인 실적 전망과 Zantac 소송에서의 승소는 주가 상승을 견인할 가능성이 높습니다.  하지만,  시장의 전반적인 상황 및 예상치 못한 변수는 항상 고려해야 합니다.  보다 정확한 전망을 위해서는 추가적인 정보 분석이 필요합니다.",
+        "ABBV": "ABBV 주식에 대한 간략 분석 보고서 (내부 참고용)\n\n**전반적인 투자 심리:** 긍정적/중립적 혼합.  Skyrizi와 Rinvoq의 강세 성장이 Humira 매출 감소를 상쇄한다는 점은 긍정적이나,  전반적인 포트폴리오 상황과 시장 경쟁에 대한 명확한 언급이 부족하여 중립적 관점도 존재합니다. CNBC의 'Final Trades'에서 ABBV가 언급된 것은 단기적인 관심을 반영하지만,  장기적인 전망을 확신할 수 있는 정보는 제한적입니다.\n\n**주요 요인:**  Skyrizi와 Rinvoq의 성장이 주요 긍정적 요인입니다. 반면 Humira 매출 감소와 전반적인 포트폴리오의 어려움은 부정적 요인으로 작용할 수 있습니다.  보고서에는 경쟁사 정보나 규제 관련 뉴스는 포함되어 있지 않습니다.\n\n**단기 전망:**  제공된 정보만으로는 단기 전망을 확신하기 어렵습니다. Skyrizi와 Rinvoq의 성장세가 지속된다면 긍정적일 수 있으나,  Humira 매출 감소 및 다른 포트폴리오 관련 리스크를 고려해야 합니다.  추가적인 정보 및 분석이 필요합니다.  CNBC 언급은 단기적인 투자 관심을 반영하는 것일 수 있으나,  구체적인 투자 결정 근거로 활용하기는 부적절합니다.",
+        "LLY": "엘리 릴리(LLY) 주식에 대한 간략 보고서\n\n**종합적인 투자 감정:** 긍정적\n\n**주요 원인:**  Mounjaro와 Zepbound의 높은 수요가 2분기 실적을 견인할 것으로 예상되며,  도널드 트럼프 전 대통령의 제약 수입품에 대한 200% 관세 부과 위협에도 불구하고, LLY는 오히려 이러한 관세로부터 이익을 얻을 것으로 전망되기 때문입니다.  Mounjaro와 Zepbound의 매출이 전체 매출의 거의 절반에 달하는 점은 특히 고무적입니다.\n\n**단기 전망:**  긍정적입니다.  Mounjaro와 Zepbound의 지속적인 강세와 예상되는 관세 혜택으로 인해 단기적으로 주가 상승 가능성이 높습니다.  그러나,  관세 부과 여부 및 그 강도에 따라 전망은 변동될 수 있습니다.  2분기 실적 발표가 향후 주가 움직임에 중요한 영향을 미칠 것으로 예상됩니다.",
+        "UNH": "UNH (유나이티드헬스) 주식에 대한 분석 보고서\n\n**전반적인 투자 심리:** 혼조세.  긍정적인 분석(월가 애널리스트의 낙관적 전망, 대규모 투자자들의 매수 움직임)과 부정적인 분석(가이던스 하향 조정, CEO 교체, 의료비 상승,  분석 지표의 과도한 낙관주의 지적)이 공존합니다.\n\n**주요 요인:**  UNH 주식에 대한 뉴스는 주로 다음과 같은 요인에 초점을 맞추고 있습니다.  가이던스 하향 조정과 CEO 교체, 그리고 상승하는 의료비는 부정적인 영향을 미치는 반면,  대규모 투자자들의 매수세와 월가 애널리스트들의 낙관적인 전망은 긍정적인 신호로 해석될 수 있습니다.  경쟁사인 시그나(Cigna)와의 비교 분석 또한 UNH의 전망을 판단하는 데 중요한 요소로 작용합니다.\n\n\n**단기 전망:**  단기적인 전망은 불확실합니다.  긍정적인 투자 심리와 부정적인 요인이 동시에 존재하기 때문에,  투자 결정 전에 추가적인 분석 및 위험 평가가 필요합니다.  특히, 의료비 상승과 CEO 교체가 실적에 미칠 영향을 주의 깊게 관찰해야 합니다.  가이던스 하향 조정의 규모와 지속 기간 또한 중요한 고려 사항입니다.  시그나와의 경쟁 상황 역시 주의 깊게 모니터링해야 합니다.",
+        "TMO": "TMO에 대한 분석 보고서 (요약)\n\n**전반적인 투자 심리:** 제공된 기사만으로는 TMO에 대한 직접적인 언급이 없으므로, 투자 심리를 판단할 수 없습니다.  기사는 다른 기업(AMC, TEL)에 대한 분석가 평가 변경을 다루고 있으며, TMO에 대한 정보는 전혀 포함되어 있지 않습니다. 따라서 중립적인 입장을 유지합니다.\n\n**주요 요인:**  Thermo Fisher Scientific (TMO) 에 대한 정보가 기사에 없으므로, 주요 요인을 확인할 수 없습니다.\n\n**단기 전망:** 제공된 자료에는 TMO의 단기 전망에 대한 정보가 없으므로 예측할 수 없습니다.  추가 정보가 필요합니다.\n\n\n**결론:** 제공된 자료만으로는 TMO에 대한 유의미한 분석을 제공할 수 없습니다.  TMO 관련 뉴스 기사를 추가로 제공해주시면 더욱 정확한 분석을 제공하겠습니다.",
+        "ABT": "ABT에 대한 투자 보고서 (요약)\n\n**전반적인 투자 심리:** 중립적. 제공된 기사는 ABT의 배당금 매력도를 강조하지만, 주가 움직임이나 재무 실적에 대한 구체적인 정보는 제공하지 않습니다. 따라서 긍정적 또는 부정적 신호를 명확히 판단하기 어렵습니다.\n\n**주요 요인:**  기사는 ABT를 \"좋은 배당주\"로 언급하며, 헬스케어 분야의 안정적인 성장 가능성을 암시합니다.  그러나 이는 특정 이벤트나 뉴스에 기반한 것이 아니며, 배당 수익률에 대한 일반적인 평가에 그치고 있습니다.\n\n**단기 전망:**  제공된 정보만으로는 ABT의 단기 전망을 예측하기 어렵습니다.  더 자세한 재무 정보, 시장 경쟁 상황, 규제 변화 등의 추가 자료가 필요합니다.  현재로서는 배당 투자에 매력적인 종목으로 평가될 수 있으나, 주가 상승 가능성에 대한 예측은 불가능합니다.",
+        "BMY": "BMY 주식에 대한 간략 분석 보고서 (2024.10.27)\n\n**종합적인 투자 심리:** 혼조세.  BMY 자체에 대한 직접적인 긍정적 또는 부정적 뉴스는 제한적입니다. 경쟁사인 AbbVie의 강세 (Skyrizi, Rinvoq 성장)가 BMY에 대한 상대적 약세 인식을 불러일으키고 있으며,  BMY 주가 하락(17%까지)은 저가 매수 기회로 인식될 수 있으나,  이는 장기적인 관점이며 단기 전망에 대한 확신을 주지는 못합니다.\n\n\n**주요 요인:**  본 보고서에 제시된 기사들은 BMY 주식의 직접적인 성과보다는 경쟁사인 AbbVie와의 비교 분석, 그리고 전반적인 주가 하락에 따른 저평가 매수 기회에 대한 언급이 주를 이룹니다.  따라서 경쟁사의 약품 성장과 BMY의 상대적 주가 부진이 주요 요인으로 작용합니다.\n\n\n**단기 전망:**  제공된 정보만으로는 BMY 주식의 단기 전망을 명확히 예측하기 어렵습니다. AbbVie와의 비교 우위가 BMY에 불리하게 작용하고 있고 주가 하락이 지속될 가능성도 존재하지만, 저가 매수 기회로 인식하는 투자자들도 있을 것으로 예상됩니다. 따라서 단기적인 변동성이 예상되며, 추가적인 정보 및 분석이 필요합니다.",
+        "VRTX": "Error: Failed to generate LLM summary for VRTX.",
+        "BAC": "Error: Failed to generate LLM summary for BAC.",
+        "WFC": "Error: Failed to generate LLM summary for WFC.",
+        "GS": "Error: Failed to generate LLM summary for GS.",
+        "MS": "Error: Failed to generate LLM summary for MS.",
+        "SCHW": "Error: Failed to generate LLM summary for SCHW.",
+        "PYPL": "Error: Failed to generate LLM summary for PYPL.",
+        "MA": "Error: Failed to generate LLM summary for MA.",
+        "V": "Error: Failed to generate LLM summary for V.",
+        "BABA": "Error: Failed to generate LLM summary for BABA.",
+        "JD": "Error: Failed to generate LLM summary for JD.",
+        "BIDU": "Error: Failed to generate LLM summary for BIDU.",
+        "CRYPTO:ETH": "Error: Failed to generate LLM summary for CRYPTO:ETH.",
+        "CRYPTO:SOL": "Error: Failed to generate LLM summary for CRYPTO:SOL.",
+        "CRYPTO:ADA": "Error: Failed to generate LLM summary for CRYPTO:ADA.",
+        "CRYPTO:XRP": "Error: Failed to generate LLM summary for CRYPTO:XRP.",
+        "CRYPTO:DOGE": "Error: Failed to generate LLM summary for CRYPTO:DOGE.",
+        "CRYPTO:LINK": "**CRYPTO:LINK에 대한 시장 분석 보고서 (내부 자료)**\n\n**투자 대상:** CRYPTO:LINK (제공된 기사는 XRP에 대한 내용이며, LINK에 대한 직접적인 정보가 부재함을 유의하십시오.)\n\n**전반적인 시장 심리:**  제공된 기사는 XRP (리플)의 급등에 대한 내용이며, CRYPTO:LINK에 대한 직접적인 언급이 없습니다. 따라서 LINK에 대한 시장 심리를 판단할 수 없습니다.  **정보 부족**\n\n**주요 동인:** 제공된 기사는 XRP의 가격 상승을 다루고 있으며, 그 원인으로 DonAlt 및 Peter Brandt와 같은 전문가의 강세 전망을 언급하고 있습니다.  그러나 이는 LINK와는 무관합니다.  **정보 부족**\n\n**단기 전망:** 제공된 기사는 LINK의 가격 움직임이나 전망에 대한 정보를 제공하지 않습니다.  따라서 단기 전망을 예측할 수 없습니다. **정보 부족**\n\n\n**결론:**  제공된 기사는 XRP에 대한 내용이며, CRYPTO:LINK의 가격 동향 및 전망에 대한 정보가 없습니다.  추가 자료 없이는 LINK에 대한 분석이 불가능합니다.  더 많은 정보를 제공해주시면 정확한 분석을 제공하겠습니다."
+    }
+}

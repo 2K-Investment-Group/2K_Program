@@ -1,166 +1,192 @@
+import json
 import os
 import sys
-import yaml
+from datetime import datetime
 import logging
-from datetime import datetime, timedelta
+import yaml
+import pandas as pd
 
-# main_collector.py 파일이 있는 디렉토리 (Data_Collection/News_Collector)
 current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, os.pardir, os.pardir))
 
-# 프로젝트 루트 디렉토리를 PYTHONPATH에 추가
-# 현재 main_collector.py는 Data_Collection/News_Collector에 있으므로
-# 두 단계 위로 올라가야 프로젝트 루트입니다.
-project_root = os.path.abspath(os.path.join(current_dir, "..", "..")) 
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-# 로깅 설정
-log_dir = os.path.join(project_root, "logs")
-os.makedirs(log_dir, exist_ok=True)
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.FileHandler(os.path.join(log_dir, f"main_collector_{timestamp}.log")),
-        logging.StreamHandler(),
-    ],
-)
+try:
+    import Data_Collection.config.config_loader as config_loader_module
+    from utils.logger_config import setup_logging
+except ImportError as e:
+    print(f"FATAL ERROR: Could not import core configuration or logging modules. Check paths and class names. Error: {e}", file=sys.stderr)
+    sys.exit(1)
+
+setup_logging()
 logger = logging.getLogger(__name__)
+logger.info("Main collector script started.")
 
-class MainCollector:
-    def __init__(self, config_path="Data_Collection/config/news_sources.yaml"):
-        # config_path는 프로젝트 루트 기준입니다.
-        self.config = self._load_config(config_path)
-        if not self.config:
-            raise ValueError(f"Failed to load application configuration from {config_path}")
-        
-        # 설정 파일에서 output_json_file 값 가져오기 (news_collection 섹션 사용)
-        output_file_name = self.config['news_collection'].get('output_json_file', "scraped_api_news_articles.json")
+try:
+    from Data_Collection.News_Collector.news_scraper import collect_news_articles_via_api
+    from Data_Collection.News_Collector.news_processor import NewsProcessor
+    from Data_Collection.News_Collector.news_analyzer import NewsAnalyzer
+    logger.info("Successfully imported News Scraper, Processor, and Analyzer modules.")
+except ImportError as e:
+    logger.error(f"Failed to import a required module. Error: {e}", exc_info=True)
+    sys.exit(1)
 
-        # 파일 경로 설정 (모두 프로젝트 루트 기준으로 변경)
-        self.data_storage_dir = os.path.join(project_root, "Data", "storage")
-        os.makedirs(self.data_storage_dir, exist_ok=True)
-        self.collected_news_file = os.path.join(
-            self.data_storage_dir,
-            output_file_name # news_collection의 output_json_file 사용
-        )
-        
-        # news_sources.yaml 자체를 설정으로 사용하므로, news_sources_config_path는 더 이상 필요 없음.
-        # 대신, NewsCollector에는 news_api_config 섹션을 직접 전달.
-        # self.news_sources_config_path = os.path.join( # 이 라인 삭제 또는 주석 처리
-        #     project_root,
-        #     self.config['news_collection']['news_sources_config'] 
-        # )
+def convert_dict_keys_to_str(data):
+    """Recursively converts dict keys (especially date objects) to strings for JSON serialization."""
+    if isinstance(data, dict):
+        return {str(k): convert_dict_keys_to_str(v) for k, v in data.items()}
+    elif isinstance(data, list):
+        return [convert_dict_keys_to_str(elem) for elem in data]
+    else:
+        return data
 
-        # 시각화 이미지 저장 디렉토리 설정
-        self.visualizations_dir = os.path.join(
-            project_root,
-            self.config['news_analysis'].get('output_image_dir', "visualizations")
-        )
-        os.makedirs(self.visualizations_dir, exist_ok=True)
+def run_news_collection_process(storage_output_dir: str) -> str | None:
+    """Runs the news scraping process and saves the raw data."""
+    logger.info("--- Starting News Collection ---")
+    
+    try:
+        news_sources_config_path = os.path.join(project_root, 'Data_Collection', 'config', 'news_sources.yaml')
+        with open(news_sources_config_path, 'r', encoding='utf-8') as f:
+            news_sources_config = yaml.safe_load(f)
+        logger.info(f"Successfully loaded news_sources.yaml from {news_sources_config_path}")
+    except (FileNotFoundError, yaml.YAMLError) as e:
+        logger.error(f"Error with news_sources.yaml: {e}. Cannot proceed with news collection.", exc_info=True)
+        return None
 
-    def _load_config(self, config_path: str) -> dict:
-        """YAML 설정 파일을 로드합니다."""
-        # 이 함수 내에서는 이미 project_root가 설정되어 있으므로 project_root를 사용합니다.
-        abs_config_path = os.path.join(project_root, config_path)
+    news_api_settings = news_sources_config.get('news_api_config', {})
+    if not news_api_settings.get('enable_api_collection', False):
+        logger.info("API news collection is disabled in news_sources.yaml. Skipping collection.")
+        return None
+
+    general_api_settings = {
+        'delay_between_api_requests_seconds': news_api_settings.get('delay_between_api_requests_seconds', 1),
+        'random_delay_range_seconds': news_api_settings.get('random_delay_range_seconds', 0.5),
+    }
+    api_configs_to_use = news_api_settings.get('apis', [])
+    
+    if not api_configs_to_use:
+        logger.warning("No API configurations found in news_sources.yaml. No APIs to scrape.")
+        return None
+
+    collected_data = collect_news_articles_via_api(
+        api_configs_to_use,
+        general_api_settings,
+        news_api_settings 
+    )
+
+    output_filename = news_api_settings.get('output_filename', "scraped_api_news_articles.json")
+    output_path = os.path.join(storage_output_dir, output_filename)
+    
+    if collected_data:
         try:
-            with open(abs_config_path, 'r', encoding='utf-8') as f:
-                config = yaml.safe_load(f)
-            logger.info(f"Successfully loaded configuration from {abs_config_path}")
-            return config
-        except FileNotFoundError:
-            logger.error(f"Configuration file not found: {abs_config_path}")
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(collected_data, f, ensure_ascii=False, indent=4)
+            logger.info(f"Successfully saved {len(collected_data)} articles to {output_path}")
+            return output_path
+        except Exception as e:
+            logger.error(f"Failed to save collected data to {output_path}: {e}", exc_info=True)
             return None
-        except yaml.YAMLError as e:
-            logger.error(f"Error parsing YAML configuration file {abs_config_path}: {e}")
-            return None
-
-    def run_news_collection(self):
-        """뉴스 수집을 실행합니다."""
-        if not self.config['news_collection']['enabled']:
-            logger.info("News collection is disabled in news_sources.yaml. Skipping.")
-            return
-
-        logger.info("--- Starting News Collection ---")
-        try:
-            # news_scraper.py는 현재 Data_Collection/News_Collector/ 에 있으므로
-            # from news_scraper import NewsCollector 형태로 임포트
-            from news_scraper import NewsCollector 
-            
-            # NewsCollector에 news_api_config 섹션 전체를 전달
-            collector = NewsCollector(
-                api_config=self.config['news_api_config'], 
-                output_file_path=self.collected_news_file
-            )
-            collector.run_collection()
-            
-            logger.info("News collection completed successfully.")
-        except ImportError as e:
-            logger.error(f"Failed to import NewsCollector from news_scraper.py. Ensure the class name is correct and file is in Data_Collection/News_Collector/. Error: {e}")
-        except Exception as e:
-            logger.error(f"An error occurred during news collection: {e}", exc_info=True)
-
-
-    def run_news_processing(self):
-        """뉴스 데이터 처리를 실행합니다."""
-        if not self.config['news_processing']['enabled']:
-            logger.info("News processing is disabled in news_sources.yaml. Skipping.")
-            return
-
-        logger.info("--- Starting News Processing ---")
-        try:
-            from news_processor import NewsProcessor
-            
-            # NewsProcessor 초기화 시 input_file_path만 전달
-            processor = NewsProcessor(input_file_path=self.collected_news_file)
-            processor.run_processing() # 함수명 일관성 유지: run_analysis 대신 run_processing
-            
-            logger.info("News processing completed successfully.")
-        except ImportError as e:
-            logger.error(f"Failed to import NewsProcessor. Ensure news_processor.py is in Data_Collection/News_Collector/. Error: {e}")
-        except Exception as e:
-            logger.error(f"An error occurred during news processing: {e}", exc_info=True)
-
-
-    def run_news_analysis_and_visualization(self):
-        """뉴스 데이터 분석 및 시각화를 실행합니다."""
-        if not self.config['news_analysis']['enabled']:
-            logger.info("News analysis and visualization is disabled in news_sources.yaml. Skipping.")
-            return
-
-        logger.info("--- Starting News Analysis and Visualization ---")
-        try:
-            from news_analyzer import NewsAnalyzer
-            
-            analyzer_config = self.config['news_analysis']
-            analyzer = NewsAnalyzer(
-                input_file_path=self.collected_news_file, 
-                output_image_dir=self.visualizations_dir
-            )
-            analyzer.run_analysis(
-                top_n_topics_wc=analyzer_config.get('top_n_topics_wordcloud', 50),
-                top_n_tickers_pie=analyzer_config.get('top_n_tickers_pie_charts', 5),
-                sentiment_interval=analyzer_config.get('sentiment_analysis_interval', 'D')
-            )
-            
-            logger.info("News analysis and visualization completed successfully. Check 'visualizations' folder.")
-        except ImportError as e:
-            logger.error(f"Failed to import NewsAnalyzer. Ensure news_analyzer.py is in Data_Collection/News_Collector/. Error: {e}")
-        except Exception as e:
-            logger.error(f"An error occurred during news analysis and visualization: {e}", exc_info=True)
-
-    def run_all(self):
-        """모든 단계를 순차적으로 실행합니다."""
-        logger.info("--- Starting Main News Collection and Analysis Process ---")
-        self.run_news_collection()
-        self.run_news_processing()
-        self.run_news_analysis_and_visualization()
-        logger.info("--- Main News Collection and Analysis Process Finished ---")
+    else:
+        logger.info("No articles were collected during this run.")
+        return None
 
 if __name__ == "__main__":
+    logger.info("--- 🚀 Starting Main News Collection and Analysis Process ---")
+
+    storage_dir = os.path.join(project_root, "Data", "storage")
+    analysis_dir = os.path.join(project_root, "Data", "analysis_results")
+    os.makedirs(storage_dir, exist_ok=True)
+    os.makedirs(analysis_dir, exist_ok=True)
+    
+    scraped_articles_path = os.path.join(storage_dir, "scraped_api_news_articles.json")
+    
+    collected_file_path = run_news_collection_process(storage_dir)
+
+    input_file_for_processing = collected_file_path if collected_file_path else scraped_articles_path
+    
+    if not os.path.exists(input_file_for_processing):
+        logger.error(f"No news data file found at {input_file_for_processing}. Cannot proceed.")
+        sys.exit(1)
+    
+    logger.info(f"Using data file for processing and analysis: {input_file_for_processing}")
+
+    logger.info("--- 🛠️ Starting News Processing ---")
     try:
-        collector = MainCollector()
-        collector.run_all()
+        processor = NewsProcessor(input_file_path=input_file_for_processing)
+        processed_df = processor.process()
+        
+        if processed_df.empty:
+            logger.error("Processing resulted in an empty DataFrame. Cannot proceed to analysis.")
+            sys.exit(1)
+            
+        logger.info("News processing finished successfully. DataFrame is ready for analysis.")
     except Exception as e:
-        logger.critical(f"Fatal error in MainCollector: {e}", exc_info=True)
+        logger.error(f"A critical error occurred during news processing: {e}", exc_info=True)
+        sys.exit(1)
+
+    my_specific_analysis_tickers = [
+    # 기존
+    "AAPL", "MSFT", "GOOG", "SMCI", "NVDA", "TSLA", "AMZN", "AMD", "CRYPTO:BTC", "SPY",
+    
+    # 미국 Big Tech
+    "META", "NFLX", "INTC", "IBM", "ORCL", "CSCO", "CRM", "ADBE", "AVGO", "QCOM",
+    
+    # AI / 반도체
+    "ASML", "AMAT", "MU", "TXN", "LRCX", "TSM", "ON", "MRVL", "PLTR", "PATH",
+    
+    # EV 및 클린에너지
+    "RIVN", "LCID", "NIO", "XPEV", "BYDDF", "F", "GM", "CHPT", "BLNK", "ENPH",
+    
+    # 에너지 / 원자재
+    "XOM", "CVX", "COP", "SLB", "BP", "OXY", "SHEL", "VLO", "MPC", "PSX",
+    
+    # 헬스케어
+    "JNJ", "PFE", "MRK", "ABBV", "LLY", "UNH", "TMO", "ABT", "BMY", "VRTX",
+    
+    # 금융/핀테크
+    "JPM", "BAC", "WFC", "GS", "MS", "SCHW", "PYPL", "SQ", "MA", "V",
+    
+    # ETF 섹터/테마
+    "QQQ", "VTI", "ARKK", "IWM", "DIA", "VOO", "SMH", "XLK", "XLF", "XLE",
+    
+    # 중국/신흥시장
+    "BABA", "JD", "PDD", "TCEHY", "BIDU", "KWEB", "EWZ", "EEM", "FXI", "MCHI",
+    
+    # Crypto 확장
+    "CRYPTO:ETH", "CRYPTO:SOL", "CRYPTO:ADA", "CRYPTO:MATIC", "CRYPTO:AVAX", "CRYPTO:XRP", "CRYPTO:DOGE", "CRYPTO:DOT", "CRYPTO:LINK", "CRYPTO:TON"
+    ]
+
+    logger.info("--- 📊 Starting News Analysis ---")
+    try:
+        analyzer = NewsAnalyzer(dataframe=processed_df)
+        
+        analysis_results = analyzer.run_analysis(
+            top_n_topics=50,
+            top_n_tickers=5, 
+            sentiment_interval='D',
+            specific_tickers=my_specific_analysis_tickers
+        )
+        
+        if not analysis_results:
+            logger.error("News analysis failed or returned no results.")
+            sys.exit(1)
+
+    except Exception as e:
+        logger.error(f"A critical error occurred during news analysis: {e}", exc_info=True)
+        sys.exit(1)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_analysis_filename = f"news_analysis_summary_{timestamp}.json"
+    output_analysis_path = os.path.join(analysis_dir, output_analysis_filename)
+
+    try:
+        json_serializable_results = convert_dict_keys_to_str(analysis_results)
+        
+        with open(output_analysis_path, 'w', encoding='utf-8') as f:
+            json.dump(json_serializable_results, f, ensure_ascii=False, indent=4)
+        logger.info(f"✅ Analysis summary successfully saved to {output_analysis_path}")
+    except Exception as e:
+        logger.error(f"Failed to save analysis summary: {e}", exc_info=True)
+    
+    logger.info("--- 🎉 Main News Collection and Analysis Process Finished ---")

@@ -1,20 +1,33 @@
-# news_sources.yaml
-
-# 뉴스 수집 활성화 및 출력 파일 설정
 news_collection:
   enabled: True
-  # 수집된 API 뉴스 저장 파일명 (news_api_config.output_filename과 통일)
   output_json_file: "scraped_api_news_articles.json" 
 
-# API별 상세 수집 설정
 news_api_config:
   enable_api_collection: True 
-
-  delay_between_api_requests_seconds: 3 # 각 API 호출 간 최소 딜레이 (초)
-  random_delay_range_seconds: 1 # 딜레이에 추가할 무작위 범위 (예: 3 + 0~1초)
-  
-  # 수집된 데이터 저장 설정 (news_collection.output_json_file과 통일)
+  delay_between_api_requests_seconds: 3 
+  random_delay_range_seconds: 1
   output_filename: "scraped_api_news_articles.json" 
+
+  target_tickers: ["NVDA", "AAPL", "MSFT", "TSLA", "AMD"]
+
+  gemini_config:
+    enabled: True 
+    api_key_env_var: "GEMINI_API_KEY"
+    model_name: "gemini-pro" 
+    generation_config:
+      temperature: 0.7
+      top_p: 1.0
+      top_k: 40
+      max_output_tokens: 2048
+    safety_settings:
+      - category: "HARM_CATEGORY_HARASSMENT"
+        threshold: "BLOCK_NONE"
+      - category: "HARM_CATEGORY_HATE_SPEECH"
+        threshold: "BLOCK_NONE"
+      - category: "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+        threshold: "BLOCK_NONE"
+      - category: "HARM_CATEGORY_DANGEROUS_CONTENT"
+        threshold: "BLOCK_NONE"
 
   apis:
     - name: "AlphaVantage"
@@ -24,10 +37,7 @@ news_api_config:
       endpoint_params:
         function: "NEWS_SENTIMENT"
         sort: "LATEST"
-        limit: 1000 # 한 번에 가져올 기사 수 (API 제한 확인 필요)
-        # 참고: AlphaVantage 무료 플랜은 보통 최근 데이터만 지원하거나 시간 범위 제한이 있습니다.
-        # time_from: "20250612T0000" # 예시: 1개월 전부터
-        # time_to: "20250712T2359"   # 현재 날짜 (main_collector.py에서 동적으로 설정)
+        limit: 1000 
 
     - name: "Finnhub"
       type: "financial_news"
@@ -35,9 +45,6 @@ news_api_config:
       base_url: "https://finnhub.io/api/v1/news"
       endpoint_params:
         category: "general"
-        # 참고: Finnhub 무료 플랜은 보통 최근 데이터만 지원합니다.
-        # from: "2025-06-12" # 예시: 1개월 전부터
-        # to: "2025-07-12"   # 현재 날짜 (main_collector.py에서 동적으로 설정)
 
     - name: "NewsAPI"
       type: "general_news"

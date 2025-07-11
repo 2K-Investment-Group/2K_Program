@@ -1,0 +1,137 @@
+{
+    "sentiment_over_time": {
+        "2025-06-30": 0.0,
+        "2025-07-10": 0.0,
+        "2025-07-11": 0.0
+    },
+    "top_topics": {
+        "Financial Markets": 472.22727600000127,
+        "Earnings": 362.59880299999986,
+        "Technology": 159.71665800000002,
+        "Finance": 128.38332799999995,
+        "Manufacturing": 123.83332399999995,
+        "Life Sciences": 95.66666099999998,
+        "Energy & Transportation": 77.51666500000002,
+        "Blockchain": 52.89376799999995,
+        "Real Estate & Construction": 42.366664000000014,
+        "Retail & Wholesale": 34.51666399999999,
+        "Economy - Monetary": 33.90242999999994,
+        "IPO": 9.631237000000002,
+        "Mergers & Acquisitions": 7.244820000000001,
+        "Economy - Fiscal": 2.6886280000000005,
+        "Economy - Macro": 2.060747
+    },
+    "api_source_sentiment": {
+        "AlphaVantage": 0.0
+    },
+    "top_ticker_sentiment": {
+        "AAPL": {
+            "mentions": 16,
+            "average_sentiment_score": 0.16110218749999997,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 3,
+                "Somewhat-Bullish": 4,
+                "Neutral": 9,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "MSFT": {
+            "mentions": 30,
+            "average_sentiment_score": 0.10445043333333334,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 1,
+                "Somewhat-Bullish": 8,
+                "Neutral": 21,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "GOOG": {
+            "mentions": 39,
+            "average_sentiment_score": 0.08991266666666668,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 2,
+                "Somewhat-Bullish": 11,
+                "Neutral": 25,
+                "Somewhat-Bearish": 1,
+                "Bearish": 0
+            }
+        },
+        "SMCI": {
+            "mentions": 1,
+            "average_sentiment_score": 0.2014,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 1,
+                "Neutral": 0,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "NVDA": {
+            "mentions": 45,
+            "average_sentiment_score": 0.15301666666666663,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 5,
+                "Somewhat-Bullish": 11,
+                "Neutral": 29,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "TSLA": {
+            "mentions": 21,
+            "average_sentiment_score": 0.1280735714285714,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 4,
+                "Somewhat-Bullish": 4,
+                "Neutral": 12,
+                "Somewhat-Bearish": 1,
+                "Bearish": 0
+            }
+        },
+        "AMZN": {
+            "mentions": 15,
+            "average_sentiment_score": 0.26442153333333335,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 3,
+                "Somewhat-Bullish": 8,
+                "Neutral": 4,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "AMD": {
+            "mentions": 7,
+            "average_sentiment_score": 0.11846142857142859,
+            "overall_sentiment_label": "Neutral",
+            "sentiment_distribution": {
+                "Bullish": 0,
+                "Somewhat-Bullish": 2,
+                "Neutral": 5,
+                "Somewhat-Bearish": 0,
+                "Bearish": 0
+            }
+        },
+        "CRYPTO:BTC": {
+            "mentions": 84,
+            "average_sentiment_score": 0.1631890357142857,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "sentiment_distribution": {
+                "Bullish": 14,
+                "Somewhat-Bullish": 24,
+                "Neutral": 43,
+                "Somewhat-Bearish": 3,
+                "Bearish": 0
+            }
+        }
+    }
+}
