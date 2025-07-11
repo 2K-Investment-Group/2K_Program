@@ -1,6 +1,6 @@
 # db_setup.py
 import psycopg2
-from config_loader import CONFIG
+from Data.config.config_loader import CONFIG
 
 def create_tables():
     conn = None

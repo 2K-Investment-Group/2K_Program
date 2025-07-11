@@ -6,7 +6,7 @@ import pandas as pd
 import time 
 import logging
 
-from config_loader import CONFIG 
+from Data.config.config_loader import CONFIG 
 from logger_config import setup_logging 
 
 setup_logging()

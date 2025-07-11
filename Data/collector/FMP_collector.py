@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import os 
 import pandas as pd
 import numpy as np
-from config_loader import CONFIG
+from Data.config.config_loader import CONFIG
 import logging
 from logger_config import setup_logging
 

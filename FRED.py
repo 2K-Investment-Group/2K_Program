@@ -8,7 +8,7 @@ import sys
 
 # --- config_loader.py에서 CONFIG를 가져옵니다. ---
 # 이 파일이 .env도 로드하고 config.yaml에서 최종 설정을 가져옵니다.
-from config_loader import CONFIG 
+from Data.config.config_loader import CONFIG 
 
 # --- 로깅 설정 ---
 LOG_DIR = 'logs'
