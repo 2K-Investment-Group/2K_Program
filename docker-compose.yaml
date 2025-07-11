@@ -1,0 +1,23 @@
+# docker-compose.yaml
+version: '3.8'
+
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    container_name: quant_timescaledb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  timescaledb_data:
