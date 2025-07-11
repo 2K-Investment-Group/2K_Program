@@ -15,9 +15,9 @@ project_root = os.path.abspath(os.path.join(current_dir, os.pardir, os.pardir))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from Data.config import config_loader
+from Data_Collection.config import config_loader
 from utils.logger_config import setup_logging
-from Data.storage.db_utils import get_db_engine
+from Data_Collection.storage.db_utils import get_db_engine
 
 logger = logging.getLogger(__name__)
 

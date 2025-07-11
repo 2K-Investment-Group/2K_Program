@@ -20,7 +20,7 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 # 사용자 정의 모듈 임포트
-from Data.config import config_loader
+from Data_Collection.config import config_loader
 from utils.logger_config import setup_logging
 
 # 로깅 설정
