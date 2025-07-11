@@ -295,68 +295,101 @@ hedgefund-trading-program/
 └── tests/                        # 테스트 코드
 
 
+
+
+quant_db (데이터베이스)
+├─── Schemas (스키마)
+│    └─── public (기본 스키마. 필요시 'raw', 'transformed' 등 스키마 분리 가능)
+│         ├─── Tables (테이블)
+│         │    │
+│         │    ├─── alpha_vantage_income_statements_raw (손익계산서 원본 데이터)
+│         │    │    ├── id (PK)
+│         │    │    ├── symbol (AAPL, MSFT 등)
+│         │    │    ├── fiscal_date_ending (재무보고서 기준 날짜 - TimescaleDB 시간축)
+│         │    │    ├── reported_currency
+│         │    │    ├── reported_date
+│         │    │    ├── period_type (annual, quarterly)
+│         │    │    ├── gross_profit (API 필드)
+│         │    │    ├── total_revenue (API 필드)
+│         │    │    ├── operating_income (API 필드)
+│         │    │    ├── net_income (API 필드)
+│         │    │    └── ... (Alpha Vantage Income Statement의 모든 필드)
+│         │    │
+│         │    ├─── alpha_vantage_balance_sheets_raw (재무상태표 원본 데이터)
+│         │    │    ├── id (PK)
+│         │    │    ├── symbol
+│         │    │    ├── fiscal_date_ending (TimescaleDB 시간축)
+│         │    │    ├── reported_currency
+│         │    │    ├── reported_date
+│         │    │    ├── period_type
+│         │    │    ├── total_assets (API 필드)
+│         │    │    ├── current_assets (API 필드)
+│         │    │    ├── total_liabilities (API 필드)
+│         │    │    ├── total_shareholder_equity (API 필드)
+│         │    │    └── ... (Alpha Vantage Balance Sheet의 모든 필드)
+│         │    │
+│         │    ├─── alpha_vantage_cash_flows_raw (현금흐름표 원본 데이터)
+│         │    │    ├── id (PK)
+│         │    │    ├── symbol
+│         │    │    ├── fiscal_date_ending (TimescaleDB 시간축)
+│         │    │    ├── reported_currency
+│         │    │    ├── reported_date
+│         │    │    ├── period_type
+│         │    │    ├── operating_cashflow (API 필드)
+│         │    │    ├── capital_expenditures (API 필드)
+│         │    │    ├── investments_cashflow (API 필드)
+│         │    │    └── ... (Alpha Vantage Cash Flow의 모든 필드)
+│         │    │
+│         │    ├─── fmp_historical_prices_raw (FMP 주가 원본 데이터)
+│         │    │    ├── id (PK)
+│         │    │    ├── symbol
+│         │    │    ├── date (주가 날짜 - TimescaleDB 시간축)
+│         │    │    ├── open
+│         │    │    ├── high
+│         │    │    ├── low
+│         │    │    ├── close
+│         │    │    ├── volume
+│         │    │    └── ... (FMP 주가 API의 모든 필드)
+│         │    │
+│         │    ├─── fmp_income_statements_raw (FMP 손익계산서 원본 데이터 - FMP도 재무제표 제공)
+│         │    │    ├── id (PK)
+│         │    │    ├── symbol
+│         │    │    ├── date (보고서 날짜 - TimescaleDB 시간축)
+│         │    │    ├── reported_currency
+│         │    │    ├── revenue
+│         │    │    └── ... (FMP 재무제표의 모든 필드)
+│         │    │
+│         │    ├─── fred_series_raw (FRED 경제 지표 원본 데이터)
+│         │    │    ├── id (PK)
+│         │    │    ├── series_id (FRED 고유 ID, 예: 'GDP')
+│         │    │    ├── date (지표 날짜 - TimescaleDB 시간축)
+│         │    │    ├── value
+│         │    │    └── ... (FRED API의 모든 필드)
+│         │    │
+│         │    ├─── world_bank_indicators_raw (월드 뱅크 지표 원본 데이터)
+│         │    │    ├── id (PK)
+│         │    │    ├── country_code (국가 코드, 예: 'KOR')
+│         │    │    ├── indicator_code (지표 코드, 예: 'SP.POP.TOTL')
+│         │    │    ├── date (지표 날짜 - TimescaleDB 시간축)
+│         │    │    ├── value
+│         │    │    └── ... (World Bank API의 모든 필드)
+│         │    │
+│         │    └─── dim_companies (차원 테이블: 기업 정보)
+│         │         ├── id (PK)
+│         │         ├── symbol
+│         │         ├── company_name
+│         │         ├── industry
+│         │         ├── sector
+│         │         └── ... (추가적인 기업 메타데이터)
+│         │
+│         └─── TimescaleDB Extensions (확장 기능)
+│              └── timescaledb (시계열 데이터 처리용)
+
+
+
+
 .venv\Scripts\activate
 
 docker exec -it quant_timescaledb psql -U lucian -d quant_db
 \d stock_ohlcv & \d crypto_ohlcv
 
-주요 30개 국가 및 지역 목록
-미국 (United States): 글로벌 경제의 중심이자 최대 소비 시장
-
-유로존 (Eurozone): 단일 통화를 사용하는 유럽 국가들의 연합 경제권
-
-독일 (Germany): 유로존 내 최대 경제국이자 유럽의 제조업 강국
-
-프랑스 (France): 유로존의 주요 경제국이자 유럽 정치의 핵심
-
-이탈리아 (Italy): 유로존의 주요 경제국 중 하나
-
-스페인 (Spain): 유로존 내 성장 잠재력을 가진 국가
-
-영국 (United Kingdom): 브렉시트 이후 독자적인 금융 중심지이자 주요 경제국
-
-일본 (Japan): 세계 3위 경제 대국, 독특한 디플레이션 및 고령화 이슈
-
-중국 (China): 세계 2위 경제 대국, 글로벌 제조업 허브
-
-한국 (South Korea): 주요 IT 및 제조업 강국, 글로벌 무역 의존도 높음
-
-캐나다 (Canada): 주요 원자재 수출국, 미국 경제와 밀접한 연관
-
-호주 (Australia): 주요 원자재 수출국, 중국 경제 영향 큼
-
-스위스 (Switzerland): 안전 자산 선호 국가, 금융 허브
-
-스웨덴 (Sweden): 북유럽의 주요 경제국, 선진 복지 국가 모델
-
-노르웨이 (Norway): 주요 산유국, 국부 펀드 규모 큼
-
-덴마크 (Denmark): 또 다른 북유럽 선진 경제국
-
-네덜란드 (Netherlands): 유럽의 주요 무역 및 물류 허브
-
-벨기에 (Belgium): 유럽 연합 본부가 위치한 유럽의 중심
-
-오스트리아 (Austria): 중앙 유럽의 안정적인 경제국
-
-아일랜드 (Ireland): 법인세 인하 정책으로 다국적 기업 유치
-
-싱가포르 (Singapore): 아시아의 주요 금융 및 무역 허브
-
-홍콩 (Hong Kong): 아시아의 금융 중심지
-
-인도 (India): 거대한 인구와 높은 성장 잠재력을 가진 신흥 시장
-
-브라질 (Brazil): 남미 최대 경제 대국, 원자재 수출국
-
-멕시코 (Mexico): 북미자유무역협정(USMCA)의 주요 구성원, 제조업 성장
-
-남아프리카 공화국 (South Africa): 아프리카 최대 경제국, 원자재 의존도 높음
-
-튀르키예 (Turkey): 전략적 위치, 높은 인플레이션과 변동성
-
-사우디 아라비아 (Saudi Arabia): 세계 최대 원유 생산국, 유가 변동에 민감
-
-아랍 에미리트 (United Arab Emirates): 중동의 금융 및 관광 허브
-
-러시아 (Russia): 주요 에너지 수출국, 지정학적 리스크

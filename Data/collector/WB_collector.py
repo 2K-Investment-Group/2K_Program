@@ -7,6 +7,7 @@ import logging
 from datetime import datetime
 import time
 import sys
+from sqlalchemy import text # for raw SQL in to_sql dtype
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, os.pardir, os.pardir))
@@ -15,15 +16,15 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 from Data.config import config_loader
-from utils.logger_config import setup_logging
+from utils.logger_config import setup_logging # utils.logger_config
+from storage.db_utils import get_db_engine # DB 엔진 가져오기
 
 logger = logging.getLogger(__name__)
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir))
-
-RAW_DATA_ROOT = os.path.join(BASE_DIR, "data", "raw_data")
-
-WB_DATA_FOLDER = os.path.join(RAW_DATA_ROOT, "world_bank")
+# CSV 저장 관련 경로 제거
+# BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir))
+# RAW_DATA_ROOT = os.path.join(BASE_DIR, "data", "raw_data")
+# WB_DATA_FOLDER = os.path.join(RAW_DATA_ROOT, "world_bank")
 
 WB_API_BASE_URL = "https://api.worldbank.org/v2"
 DEFAULT_START_YEAR = 1960 
@@ -52,10 +53,11 @@ DEFAULT_TOP_INDICATORS = {
     "VC.BTL.DETH": "Battle-related deaths (number of people)",
 }
 
-def ensure_wb_data_folder_exists():
-    if not os.path.exists(WB_DATA_FOLDER):
-        os.makedirs(WB_DATA_FOLDER)
-        logger.info(f"Created World Bank data storage folder: '{WB_DATA_FOLDER}'.")
+# CSV 저장 관련 함수 제거
+# def ensure_wb_data_folder_exists():
+#     if not os.path.exists(WB_DATA_FOLDER):
+#         os.makedirs(WB_DATA_FOLDER)
+#         logger.info(f"Created World Bank data storage folder: '{WB_DATA_FOLDER}'.")
 
 def get_api_response(url, logger, retries=3, delay=1): 
     for attempt in range(retries):
@@ -74,7 +76,7 @@ def get_api_response(url, logger, retries=3, delay=1):
     logger.error(f"All retries exhausted for API request: {url}")
     return None
 
-def clean_filename(name):
+def clean_filename(name): # CSV 저장 시에만 사용되므로 이제 필요 없음 (유지해도 무방)
     name = re.sub(r'[^\w\s.-]', '', name)
     name = re.sub(r'\s+', '_', name).strip('_')
     name = name.lower()
@@ -114,11 +116,11 @@ def fetch_and_save_indicator_data(country_code, country_name, indicator_code, in
             for item in current_page_data:
                 if item['value'] is not None:
                     all_data.append({
-                        'country': item['country']['value'],
+                        'country_name': item['country']['value'],
                         'country_code': item['countryiso3code'],
-                        'indicator': item['indicator']['value'],
+                        'indicator_name': item['indicator']['value'],
                         'indicator_code': item['indicator']['id'],
-                        'year': int(item['date']),
+                        'year': int(item['date']), # Original year from API
                         'value': float(item['value'])
                     })
             total_pages = metadata['pages']
@@ -133,22 +135,45 @@ def fetch_and_save_indicator_data(country_code, country_name, indicator_code, in
 
     if all_data:
         df = pd.DataFrame(all_data)
-        df = df.sort_values(by=['country_code', 'year']).reset_index(drop=True)
+        # World Bank 데이터는 'year'로 제공되지만, TimescaleDB 하이퍼테이블을 위해 'date' 타입으로 변환
+        # 예: 2020 -> '2020-01-01'
+        df['date'] = pd.to_datetime(df['year'].astype(str) + '-01-01', errors='coerce')
+        
+        # 필요한 컬럼만 선택하고 순서 정렬
+        df = df[['country_name', 'country_code', 'indicator_name', 'indicator_code', 'date', 'value']]
+        df = df.sort_values(by=['country_code', 'date']).reset_index(drop=True)
 
-        country_save_dir = os.path.join(WB_DATA_FOLDER, country_name.replace(' ', '_').replace('.', '').replace(',', '')) 
-        os.makedirs(country_save_dir, exist_ok=True)
+        # DB Engine
+        engine = get_db_engine()
+        if not engine:
+            logger.error(f"Failed to get DB engine for {country_code}-{indicator_code}. Cannot save to database.")
+            return False
 
-        file_name = clean_filename(indicator_name)
-        full_save_path = os.path.join(country_save_dir, file_name)
-
+        table_name = "world_bank_indicators_raw"
         try:
-            df.to_csv(full_save_path, index=False)
-            logger.info(f"    └─ Saved {len(df)} entries for '{indicator_name}' in '{country_name}'.")
+            # Similar to FRED, using append. Unique constraint will prevent duplicate (country_code, indicator_code, date)
+            df.to_sql(table_name, engine, if_exists='append', index=False, dtype={
+                'country_name': text('VARCHAR(255)'),
+                'country_code': text('VARCHAR(10)'),
+                'indicator_name': text('TEXT'),
+                'indicator_code': text('VARCHAR(50)'),
+                'date': text('DATE'),
+                'value': text('NUMERIC')
+            })
+            logger.info(f"    └─ Saved {len(df)} entries for '{indicator_name}' in '{country_name}' to DB.")
             return True
         except Exception as e:
-            logger.error(f"    └─ Error saving '{indicator_name}' data for '{country_name}': {e}")
-            return False
+            if "duplicate key value violates unique constraint" in str(e):
+                logger.warning(f"    └─ Data for '{country_name}' - '{indicator_name}' (some dates) already exists in '{table_name}'. New data appended, existing dates skipped/not updated. Error: {e}")
+                return True # Consider it a success if new data was appended
+            else:
+                logger.error(f"    └─ Error saving '{indicator_name}' data for '{country_name}' to database: {e}", exc_info=True)
+                return False
+        finally:
+            if engine:
+                engine.dispose()
     else:
+        logger.info(f"    └─ No data fetched for '{country_name}' - '{indicator_name}'.")
         return False
 
 def collect_world_bank_data(countries_to_fetch=None, indicators_to_fetch=None,
@@ -185,7 +210,7 @@ def collect_world_bank_data(countries_to_fetch=None, indicators_to_fetch=None,
     total_indicators_to_fetch = len(current_indicators)
     logger.info(f"Processing {total_indicators_to_fetch} indicators for {total_countries} countries.")
 
-    ensure_wb_data_folder_exists()
+    # ensure_wb_data_folder_exists() # CSV 저장 관련 함수 제거
 
     country_processed_count = 0
     succeeded_data_count = 0
@@ -215,10 +240,10 @@ if __name__ == "__main__":
 
     logger.info("Running WB_collector.py script directly (for testing purposes).")
 
-    test_countries = config_loader.CONFIG['data_sources'].get('world_bank_countries', ['KOR', 'USA'])
-    test_indicators = config_loader.CONFIG['data_sources'].get('world_bank_indicators', DEFAULT_TOP_INDICATORS)
-    test_start_year = config_loader.CONFIG['data_sources'].get('world_bank_start_year', DEFAULT_START_YEAR)
-    test_end_year = config_loader.CONFIG['data_sources'].get('world_bank_end_year', DEFAULT_END_YEAR)
+    test_countries = config_loader.CONFIG.get('data_sources', {}).get('world_bank_countries', ['KOR', 'USA'])
+    test_indicators = config_loader.CONFIG.get('data_sources', {}).get('world_bank_indicators', DEFAULT_TOP_INDICATORS)
+    test_start_year = config_loader.CONFIG.get('data_sources', {}).get('world_bank_start_year', DEFAULT_START_YEAR)
+    test_end_year = config_loader.CONFIG.get('data_sources', {}).get('world_bank_end_year', DEFAULT_END_YEAR)
 
     collect_world_bank_data(
         countries_to_fetch=test_countries,
