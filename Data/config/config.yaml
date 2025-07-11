@@ -22,6 +22,145 @@ data_sources:
     - "BTC/USDT"
     - "ETH/USDT"
 
+data_sources:
+  world_bank_start_year: 2000
+  world_bank_end_year: 2025
+
+  world_bank_countries:
+  
+    # 주요 선진국 (G7 및 기타 중요 경제국)
+    - "USA" # 미국
+    - "JPN" # 일본
+    - "DEU" # 독일
+    - "GBR" # 영국
+    - "FRA" # 프랑스
+    - "CAN" # 캐나다
+    - "ITA" # 이탈리아
+    - "AUS" # 호주
+    - "KOR" # 한국
+    - "CHE" # 스위스 (안전자산 및 금융 중심지)
+    - "NLD" # 네덜란드 (유럽의 관문)
+    - "SWE" # 스웨덴 (북유럽 경제)
+    - "ESP" # 스페인
+
+    # 주요 신흥국 및 BRICS
+    - "CHN" # 중국 
+    - "IND" # 인도
+    - "BRA" # 브라질
+    - "RUS" # 러시아
+    - "ZAF" # 남아프리카 공화국
+    - "MEX" # 멕시코
+    - "IDN" # 인도네시아
+    - "TUR" # 터키
+    - "VNM" # 베트남
+    - "PHL" # 필리핀
+    - "THA" # 태국
+    - "MYS" # 말레이시아
+    - "ARG" # 아르헨티나 (농업 및 경제 변동성)
+    - "CHL" # 칠레 (구리 등 원자재)
+    - "SAU" # 사우디아라비아 (석유)
+    - "ARE" # 아랍에미리트 (중동 금융 및 무역 허브)
+    - "EGY" # 이집트 (중동-아프리카 거점)
+    - "NGA" # 나이지리아 (아프리카 최대 경제국)
+
+    # 주요 지역 집계 그룹 (매크로 분석용)
+    - "WLD" # 세계 (World)
+    - "EU"  # 유럽연합 (European Union)
+    - "EMU" # 유로 지역 (Euro Area)
+    - "EAS" # 동아시아 및 태평양 (East Asia & Pacific)
+    - "LCN" # 라틴 아메리카 및 카리브해 (Latin America & Caribbean)
+    - "MEA" # 중동 및 북아프리카 (Middle East & North Africa)
+    - "SSF" # 사하라 이남 아프리카 (Sub-Saharan Africa)
+    - "ECS" # 유럽 및 중앙 아시아 (Europe & Central Asia)
+    - "SAS" # 남아시아 (South Asia)
+    - "NAF" # 북미 (North America - 참고: World Bank에서는 캐나다/미국을 따로 보는 경우가 많음)
+
+  world_bank_indicators:
+    - indicator_id: "NY.GDP.MKTP.CD"
+      name: "GDP (current US$)"
+    - indicator_id: "NY.GDP.PCAP.CD"
+      name: "GDP per capita (current US$)"
+    - indicator_id: "NY.GDP.MKTP.KD.ZG"
+      name: "GDP growth (annual %)"
+    - indicator_id: "FP.CPI.TOTL.ZG"
+      name: "Inflation, consumer prices (annual %)"
+    - indicator_id: "SL.UEM.TOTL.ZS"
+      name: "Unemployment, total (% of total labor force)"
+    - indicator_id: "BN.CAB.XOKA.CD"
+      name: "Current account balance (BoP, current US$)"
+    - indicator_id: "NV.AGR.TOTL.ZS"
+      name: "Agriculture, forestry, and fishing, value added (% of GDP)"
+    - indicator_id: "NV.IND.TOTL.ZS"
+      name: "Industry (including construction), value added (% of GDP)"
+    - indicator_id: "NV.SRV.TOTL.ZS"
+      name: "Services, value added (% of GDP)"
+    - indicator_id: "BX.GSR.MRCH.CD"
+      name: "Merchandise exports (current US$)"
+    - indicator_id: "BM.GSR.MRCH.CD"
+      name: "Merchandise imports (current US$)"
+    - indicator_id: "GC.TAX.TOTL.GD.ZS"
+      name: "Tax revenue (% of GDP)"
+    - indicator_id: "GC.XPN.TOTL.GD.ZS"
+      name: "Expense (% of GDP)"
+    - indicator_id: "PX.GDP.PCAP.PP.CD"
+      name: "GDP per capita, PPP (current international $)"
+    - indicator_id: "SP.POP.TOTL"
+      name: "Population, total"
+    - indicator_id: "SP.URB.TOTL.IN.ZS"
+      name: "Urban population (% of total population)"
+    - indicator_id: "SL.TLF.TOTL.IN"
+      name: "Labor force, total"
+    - indicator_id: "SE.XPD.TOTL.GD.ZS"
+      name: "Expenditure on education (% of GDP)"
+    - indicator_id: "SH.XPD.CHEX.GD.ZS"
+      name: "Current health expenditure (% of GDP)"
+    - indicator_id: "VC.BTL.DETH"
+      name: "Battle-related deaths (number of people)"
+    # --- 추가 20개 지표 (총 40개) ---
+    - indicator_id: "GFDD.AI.01"
+      name: "Gross capital formation (current US$)"
+    - indicator_id: "FI.RES.TOTL.CD"
+      name: "Total reserves (includes gold, current US$)"
+    - indicator_id: "BX.KLT.DINV.CD.WD"
+      name: "Foreign direct investment, net inflows (BoP, current US$)"
+    - indicator_id: "BM.KLT.DINV.CD.WD"
+      name: "Foreign direct investment, net outflows (BoP, current US$)"
+    - indicator_id: "DPANUSLCB"
+      name: "Domestic credit to private sector (% of GDP)"
+    - indicator_id: "BN.TRF.KLT0.CD"
+      name: "Net current transfers (current US$)"
+    - indicator_id: "TX.VAL.MRCH.CD.WT"
+      name: "Merchandise exports (US$)"
+    - indicator_id: "TM.VAL.MRCH.CD.WT"
+      name: "Merchandise imports (US$)"
+    - indicator_id: "BX.GSR.GNFS.ZS"
+      name: "Exports of goods and services (% of GDP)"
+    - indicator_id: "BM.GSR.GNFS.ZS"
+      name: "Imports of goods and services (% of GDP)"
+    - indicator_id: "GC.DOD.TOTL.GD.ZS"
+      name: "General government final consumption expenditure (% of GDP)"
+    - indicator_id: "DT.DOD.DECT.CD"
+      name: "External debt stocks, total (current US$)"
+    - indicator_id: "GC.BAL.CASH.GD.ZS"
+      name: "Overall budget balance, including grants (% of GDP)"
+    - indicator_id: "GC.REV.TOTL.GD.ZS"
+      name: "Revenue, excluding grants (% of GDP)"
+    - indicator_id: "SP.POP.0014.TO.ZS"
+      name: "Population, ages 0-14 (% of total)"
+    - indicator_id: "SP.POP.65UP.TO.ZS"
+      name: "Population, ages 65 and above (% of total)"
+    - indicator_id: "EG.ELC.ACCS.ZS"
+      name: "Access to electricity (% of population)"
+    - indicator_id: "SM.POP.NETM"
+      name: "Net migration"
+    - indicator_id: "NY.GDP.DEFL.KD.ZG"
+      name: "Inflation, GDP deflator (annual %)"
+    - indicator_id: "SI.POV.GINI"
+      name: "Gini index (World Bank estimate)"
+  api_delays:
+    world_bank_indicator_delay_seconds: 0.1
+    world_bank_country_delay_seconds: 5
+
 fred_datasets:
   # 1. 국내총생산 (GDP) - 20개
   - name: "미국 실질 국내총생산 (Real GDP)"
