@@ -1,0 +1,1459 @@
+{
+    "top_ticker_sentiment": {
+        "AAPL": {
+            "mentions": 26,
+            "average_sentiment_score": 0.1183705769230769,
+            "overall_sentiment_label": "Neutral",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AAPL Jul 2025 182.500 call (AAPL250718C00182500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AAPL250718C00182500/",
+                    "snippet": "10 hours ago ... Find the latest AAPL Jul 2025 182.500 call (AAPL250718C00182500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "www.bloomberg.com",
+                    "title": "Apple Inc - Company Profile and News - Bloomberg Markets",
+                    "url": "https://www.bloomberg.com/profile/company/AAPL:US",
+                    "snippet": "10 hours ago ... Company profile page for Apple Inc including stock price, company news, executives, board members, and contact information. ... AAPL:US211.16USD. -1.25-0.59%. As ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "APO,TT,GOOGL,DE,NDAQ,AAPL,AVGO,INTU,JPM,MSFT,TFC,ABT ...",
+                    "url": "https://finance.yahoo.com/quotes/APO,TT,GOOGL,DE,NDAQ,AAPL,AVGO,INTU,JPM,MSFT,TFC,ABT,MA,LLY,SPGI,TRV,GE,NFLX,NVDA,CEG,BSX,ACN,AEP,GS,ECL,TMUS,LMT,HPE,VRSK,AMZN/",
+                    "snippet": "10 hours ago ... View and compare APO,TT,GOOGL,DE,NDAQ,AAPL,AVGO,INTU,JPM,MSFT,TFC,ABT,MA,LLY,SPGI,TRV,GE,NFLX,NVDA,CEG,BSX,ACN,AEP,GS,ECL,TMUS,LMT,HPE,VRSK,AMZN on Yahoo ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AAPL Jul 2025 192.500 call (AAPL250718C00192500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AAPL250718C00192500/",
+                    "snippet": "10 hours ago ... Find the latest AAPL Jul 2025 192.500 call (AAPL250718C00192500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT ...",
+                    "url": "https://finance.yahoo.com/quotes/TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT,MA,LLY,TRV,SPGI,GE,NFLX,NVDA,CEG,BSX,GS,ACN,AEP,ECL,TMUS,LMT,VRSK,HPE,AMZN/",
+                    "snippet": "4 hours ago ... View and compare TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT,MA,LLY,TRV,SPGI,GE,NFLX,NVDA,CEG,BSX,GS,ACN,AEP,ECL,TMUS,LMT,VRSK,HPE ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AAPL Jul 2025 207.500 put (AAPL250718P00207500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AAPL250718P00207500/",
+                    "snippet": "10 hours ago ... Find the latest AAPL Jul 2025 207.500 put (AAPL250718P00207500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "www.wsj.com",
+                    "title": "DJIA | Dow Jones Industrial Average Stock Prices and Charts - WSJ",
+                    "url": "https://www.wsj.com/market-data/quotes/index/DJIA?gaa_at=eafs&gaa_n=ASWzDAiV7gDmnuwCyvGEoT1rjlDtupHogQqWmPr5aU2pP9U5hPN6rSuFRD4V&gaa_ts=68723028&gaa_sig=JqR7aRnVqmD27XL9I-qej93CY4MuLvobKSoBHkMkaAIuuBhuwa-2rOWOQZY0tT9LO10QOM4VGWOhUjvqGWvKZQ%3D%3D",
+                    "snippet": "10 hours ago ... View the full Dow Jones Industrial Average (DJIA) index overview including the latest stock market news, data and trading information ... AAPL · Apple Inc. 211.16 ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 2,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AAPL Jul 2025 227.500 put (AAPL250718P00227500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AAPL250718P00227500/",
+                    "snippet": "10 hours ago ... Find the latest AAPL Jul 2025 227.500 put (AAPL250718P00227500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "www.bloomberg.com",
+                    "title": "Markets - Bloomberg",
+                    "url": "https://www.bloomberg.com/markets",
+                    "snippet": "10 hours ago ... Televisa Stocks Jumped On Share Buyback Plan After Earnings Miss · Mexico's ... AAPL. 212.82. 0.80%. Follow. Meta Poached Apple's Pang With Pay Package Over ...",
+                    "sentiment_score": 0.5,
+                    "event_type": "Competition",
+                    "impact_rating": 3,
+                    "timeline_focus": "Mid-term"
+                },
+                {
+                    "source": "www.reuters.com",
+                    "title": "AAPL.OQ - | Stock Price & Latest News | Reuters",
+                    "url": "https://www.reuters.com/markets/companies/AAPL.OQ/key-metrics",
+                    "snippet": "10 hours ago ... Get Apple Inc (AAPL.OQ) real-time stock quotes, news, price and financial information from Reuters to inform your trading and investments.",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 1.3,
+                "event_distribution": {
+                    "Other": 8,
+                    "Market-Trend": 1,
+                    "Competition": 1
+                },
+                "timeline_distribution": {
+                    "Short-term": 9,
+                    "Mid-term": 1
+                },
+                "article_count": 10
+            }
+        },
+        "MSFT": {
+            "mentions": 40,
+            "average_sentiment_score": 0.09083782500000001,
+            "overall_sentiment_label": "Neutral",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "MSFT Jul 2025 457.500 put (MSFT250718P00457500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/MSFT250718P00457500/",
+                    "snippet": "10 hours ago ... Find the latest MSFT Jul 2025 457.500 put (MSFT250718P00457500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "MSFT Jul 2025 530.000 call (MSFT250718C00530000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/MSFT250718C00530000/",
+                    "snippet": "10 hours ago ... Find the latest MSFT Jul 2025 530.000 call (MSFT250718C00530000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "MSFT Jul 2025 362.500 put (MSFT250718P00362500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/MSFT250718P00362500/",
+                    "snippet": "10 hours ago ... Find the latest MSFT Jul 2025 362.500 put (MSFT250718P00362500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "MSFT Jul 2025 565.000 call (MSFT250718C00565000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/MSFT250718C00565000/",
+                    "snippet": "10 hours ago ... Find the latest MSFT Jul 2025 565.000 call (MSFT250718C00565000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT ...",
+                    "url": "https://finance.yahoo.com/quotes/TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT,MA,LLY,TRV,SPGI,GE,NFLX,NVDA,CEG,BSX,GS,ACN,AEP,ECL,TMUS,LMT,VRSK,HPE,AMZN/",
+                    "snippet": "4 hours ago ... The new forecast just put Microsoft's future in a different league. TheStreet • 4 hours ago. MSFT. +0.37% ...",
+                    "sentiment_score": 0.5,
+                    "event_type": "Guidance/Forecast",
+                    "impact_rating": 3,
+                    "timeline_focus": "Long-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "MSFT Jul 2025 367.500 put (MSFT250718P00367500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/MSFT250718P00367500/",
+                    "snippet": "10 hours ago ... Find the latest MSFT Jul 2025 367.500 put (MSFT250718P00367500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "MAT,AAPL,VZ,F,JPM,MRK,TSCO,PPL,MSFT,GLW,SBUX,V,RTX ...",
+                    "url": "https://finance.yahoo.com/quotes/MAT,AAPL,VZ,F,JPM,MRK,TSCO,PPL,MSFT,GLW,SBUX,V,RTX,FLEX,CMG,GE,CMI,AIG,AA,META,NVDA,SYK,JBHT,MNST,SWK,ILMN,EL,CSX,NKE,OTIS,GT,ECL,LMT,ELAN,PG,MCO,SCHW,PEP,FAST,ISRG,CHD,BA/",
+                    "snippet": "9 hours ago ... View and compare MAT,AAPL,VZ,F,JPM,MRK,TSCO,PPL,MSFT,GLW,SBUX,V,RTX,FLEX,CMG,GE,CMI,AIG,AA,META,NVDA,SYK,JBHT,MNST,SWK,ILMN,EL,CSX,NKE,OTIS ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Microsoft Corporation (MSFT) Latest Stock News & Headlines ...",
+                    "url": "https://finance.yahoo.com/quote/MSFT/news/",
+                    "snippet": "10 hours ago ... Get the latest Microsoft Corporation (MSFT) stock news and headlines to help you in your trading and investing decisions.",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TT,APO,GOOGL,DE,NDAQ,AAPL,AVGO,INTU,JPM,MSFT,TFC,ABT ...",
+                    "url": "https://finance.yahoo.com/quotes/TT,APO,GOOGL,DE,NDAQ,AAPL,AVGO,INTU,JPM,MSFT,TFC,ABT,MA,LLY,SPGI,TRV,GE,NFLX,NVDA,CEG,BSX,AEP,GS,ACN,ECL,TMUS,LMT,VRSK,HPE,AMZN/",
+                    "snippet": "9 hours ago ... View and compare TT,APO,GOOGL,DE,NDAQ,AAPL,AVGO,INTU,JPM,MSFT,TFC,ABT,MA,LLY,SPGI,TRV,GE,NFLX,NVDA,CEG,BSX,AEP,GS,ACN,ECL,TMUS,LMT,VRSK,HPE ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "MSFT Jul 2025 357.500 put (MSFT250718P00357500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/MSFT250718P00357500/",
+                    "snippet": "10 hours ago ... Find the latest MSFT Jul 2025 357.500 put (MSFT250718P00357500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 1.2,
+                "event_distribution": {
+                    "Other": 9,
+                    "Guidance/Forecast": 1
+                },
+                "timeline_distribution": {
+                    "Short-term": 9,
+                    "Long-term": 1
+                },
+                "article_count": 10
+            }
+        },
+        "GOOG": {
+            "mentions": 49,
+            "average_sentiment_score": 0.10013457142857143,
+            "overall_sentiment_label": "Neutral",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "GOOG Jul 2025 162.500 call (GOOG250718C00162500) Stock ...",
+                    "url": "https://finance.yahoo.com/quote/GOOG250718C00162500/",
+                    "snippet": "10 hours ago ... Find the latest GOOG Jul 2025 162.500 call (GOOG250718C00162500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "GOOG Jul 2025 182.500 call (GOOG250718C00182500) Stock ...",
+                    "url": "https://finance.yahoo.com/quote/GOOG250718C00182500/",
+                    "snippet": "10 hours ago ... Find the latest GOOG Jul 2025 182.500 call (GOOG250718C00182500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "2 Growth Stocks to Buy Now With Less Than $500",
+                    "url": "https://finance.yahoo.com/news/2-growth-stocks-buy-now-080500113.html",
+                    "snippet": "2 hours ago ... Alphabet (NASDAQ: GOOGL) (NASDAQ: GOOG) continues to win on multiple ... Snowflake rolled out more than 125 new product features last quarter, ...",
+                    "sentiment_score": 0.8,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 3,
+                    "timeline_focus": "Mid-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "GOOG Jul 2025 152.500 put (GOOG250718P00152500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/GOOG250718P00152500/",
+                    "snippet": "10 hours ago ... Find the latest GOOG Jul 2025 152.500 put (GOOG250718P00152500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Alphabet Inc. (GOOGL) Latest Stock News & Headlines - Yahoo ...",
+                    "url": "https://finance.yahoo.com/quote/GOOGL/news/",
+                    "snippet": "10 hours ago ... This partnership highlights Presidio's capabilities in advancing ... Alphabet's (GOOG, GOOGL) Google will give a significant discount on cloud ...",
+                    "sentiment_score": 0.6,
+                    "event_type": "Partnership",
+                    "impact_rating": 2,
+                    "timeline_focus": "Mid-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Amazon.com, Inc. (AMZN) Latest Stock News & Headlines - Yahoo ...",
+                    "url": "https://finance.yahoo.com/quote/AMZN/news/",
+                    "snippet": "10 hours ago ... GOOG · ^GSPC · Amazon Stock Has Room to Run. 2 Analysts Raise Price Targets Before ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "GOOGL,PNC,SLB,ABNB,PFE,ELV,OXY,TSLA,SBUX,AMD,CME ...",
+                    "url": "https://finance.yahoo.com/quotes/GOOGL,PNC,SLB,ABNB,PFE,ELV,OXY,TSLA,SBUX,AMD,CME,MDT,MO,NOC,SNOW,AMT,EMR,LOW,XOM,BRK-B,CRH,ADBE,MAR,BA,TGT,BLK,MDLZ,CVS,AMAT,C,CVX,MRK,PLD,MSFT,BDX,RTX,LRCX,SPGI,DUK,FDX,SO,GD,BKNG,UBER,GE,PANW,PYPL,GOOG,KO,USB,CI,MNST,NXPI,CSX,BMY,MCD,NEE,LIN,SCHW,PEP/",
+                    "snippet": "10 hours ago ... ... GOOG,KO,USB,CI,MNST,NXPI,CSX,BMY,MCD,NEE,LIN,SCHW,PEP | Stock Prices | Quote Comparison - Yahoo Finance. Oops, something went wrong. News · Today's news ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Alphabet Inc. (GOOG) Interactive Stock Chart - Yahoo Finance",
+                    "url": "https://finance.yahoo.com/quote/GOOG/chart/",
+                    "snippet": "10 hours ago ... In partnership with ChartIQ. Recent News: GOOG. Más detalles. Todos News Press Releases. SEC Filings ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Alphabet Inc. (GOOG) Latest Stock News & Headlines - Yahoo ...",
+                    "url": "https://finance.yahoo.com/quote/GOOG/news/",
+                    "snippet": "10 hours ago ... Get the latest Alphabet Inc. (GOOG) stock news and headlines to help you in your trading and investing decisions.",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Microsoft Corporation (MSFT) Latest Stock News & Headlines ...",
+                    "url": "https://finance.yahoo.com/quote/MSFT/news/",
+                    "snippet": "10 hours ago ... GOOG · OPAI.PVT · GOOGL · Veteran analyst issues eye-popping Microsoft stock price target. The new ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 1.3,
+                "event_distribution": {
+                    "Other": 8,
+                    "Market-Trend": 1,
+                    "Partnership": 1
+                },
+                "timeline_distribution": {
+                    "Short-term": 8,
+                    "Mid-term": 2
+                },
+                "article_count": 10
+            }
+        },
+        "SMCI": {
+            "mentions": 11,
+            "average_sentiment_score": 0.09103636363636364,
+            "overall_sentiment_label": "Neutral",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Super Micro Computer, Inc. (1SMCI.MI) Latest Stock News ...",
+                    "url": "https://finance.yahoo.com/quote/1SMCI.MI/news/",
+                    "snippet": "10 hours ago ... ... earnings forecast to grow by 15% annually. In this environment, identifying high ... Why Super Micro (SMCI) Stock Is Moving Upwards. Super Micro Expands ...",
+                    "sentiment_score": 0.8,
+                    "event_type": "Guidance/Forecast",
+                    "impact_rating": 3,
+                    "timeline_focus": "Mid-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "SMCI Jul 2025 39.000 call (SMCI250718C00039000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/SMCI250718C00039000/",
+                    "snippet": "10 hours ago ... Find the latest SMCI Jul 2025 39.000 call (SMCI250718C00039000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "SMCI Jul 2025 43.000 call (SMCI250718C00043000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/SMCI250718C00043000/",
+                    "snippet": "10 hours ago ... Find the latest SMCI Jul 2025 43.000 call (SMCI250718C00043000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "SMCI Jul 2025 30.000 call (SMCI250718C00030000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/SMCI250718C00030000/",
+                    "snippet": "10 hours ago ... Find the latest SMCI Jul 2025 30.000 call (SMCI250718C00030000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "SMCI Jul 2025 53.000 put (SMCI250718P00053000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/SMCI250718P00053000/",
+                    "snippet": "10 hours ago ... Find the latest SMCI Jul 2025 53.000 put (SMCI250718P00053000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "SMCI Jul 2025 33.000 call (SMCI250718C00033000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/SMCI250718C00033000/",
+                    "snippet": "10 hours ago ... Find the latest SMCI Jul 2025 33.000 call (SMCI250718C00033000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "SMCI Jul 2025 39.500 call (SMCI250718C00039500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/SMCI250718C00039500/",
+                    "snippet": "10 hours ago ... Find the latest SMCI Jul 2025 39.500 call (SMCI250718C00039500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "SMCI Jul 2025 59.000 put (SMCI250718P00059000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/SMCI250718P00059000/",
+                    "snippet": "10 hours ago ... Find the latest SMCI Jul 2025 59.000 put (SMCI250718P00059000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "SMCI Jul 2025 48.000 call (SMCI250718C00048000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/SMCI250718C00048000/",
+                    "snippet": "10 hours ago ... Find the latest SMCI Jul 2025 48.000 call (SMCI250718C00048000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "SMCI Jul 2025 68.000 call (SMCI250718C00068000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/SMCI250718C00068000/",
+                    "snippet": "10 hours ago ... Find the latest SMCI Jul 2025 68.000 call (SMCI250718C00068000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 1.2,
+                "event_distribution": {
+                    "Guidance/Forecast": 1,
+                    "Other": 9
+                },
+                "timeline_distribution": {
+                    "Mid-term": 1,
+                    "Short-term": 9
+                },
+                "article_count": 10
+            }
+        },
+        "NVDA": {
+            "mentions": 55,
+            "average_sentiment_score": 0.1342863636363636,
+            "overall_sentiment_label": "Neutral",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "NVDA Jul 2025 141.000 call (NVDA250718C00141000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/NVDA250718C00141000/",
+                    "snippet": "10 hours ago ... Find the latest NVDA Jul 2025 141.000 call (NVDA250718C00141000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT ...",
+                    "url": "https://finance.yahoo.com/quotes/TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT,MA,LLY,TRV,SPGI,GE,NFLX,NVDA,CEG,BSX,GS,ACN,AEP,ECL,TMUS,LMT,VRSK,HPE,AMZN/",
+                    "snippet": "4 hours ago ... ... NVDA,CEG,BSX,GS,ACN,AEP,ECL,TMUS,LMT,VRSK,HPE,AMZN | Stock Prices | Quote Comparison - Yahoo Finance. Oops, something went wrong. News · Today's ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "NVDA Jul 2025 207.500 put (NVDA250718P00207500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/NVDA250718P00207500/",
+                    "snippet": "10 hours ago ... Find the latest NVDA Jul 2025 207.500 put (NVDA250718P00207500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": -0.2,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "NVDA Jul 2025 205.000 put (NVDA250718P00205000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/NVDA250718P00205000/",
+                    "snippet": "10 hours ago ... Find the latest NVDA Jul 2025 205.000 put (NVDA250718P00205000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": -0.2,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "NVDA Jul 2025 147.000 put (NVDA250718P00147000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/NVDA250718P00147000/",
+                    "snippet": "10 hours ago ... Find the latest NVDA Jul 2025 147.000 put (NVDA250718P00147000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": -0.2,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "This Artificial Intelligence (AI) Stock Just Hit a New High -- and It's ...",
+                    "url": "https://finance.yahoo.com/news/artificial-intelligence-ai-stock-just-084700058.html",
+                    "snippet": "50 minutes ago ... ... NVDA). The company invented the graphics processing units (GPUs) ... Nvidia stock is selling for roughly 38 times forward earnings as of this ...",
+                    "sentiment_score": 0.8,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 3,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "NVDA Jul 2025 144.000 call (NVDA250718C00144000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/NVDA250718C00144000/",
+                    "snippet": "10 hours ago ... Find the latest NVDA Jul 2025 144.000 call (NVDA250718C00144000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "NVDA Jul 2025 132.000 put (NVDA250718P00132000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/NVDA250718P00132000/",
+                    "snippet": "10 hours ago ... Find the latest NVDA Jul 2025 132.000 put (NVDA250718P00132000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": -0.2,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Should You Forget Nvidia and Buy These 2 Artificial Intelligence (AI ...",
+                    "url": "https://finance.yahoo.com/news/forget-nvidia-buy-2-artificial-074000696.html",
+                    "snippet": "1 day ago ... ... products. Nvidia (NASDAQ: NVDA) has been a no-brainer buy for investors over the past couple of years. The stock has delivered both earnings and ...",
+                    "sentiment_score": 0.5,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 2,
+                    "timeline_focus": "Mid-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Leverage Shares by Themes continues product expansion with a ...",
+                    "url": "https://finance.yahoo.com/news/leverage-shares-themes-continues-product-140000718.html",
+                    "snippet": "20 hours ago ... HOOG Leverage Shares 2X Long HOOD Daily ETF. NVDG Leverage Shares 2X Long NVDA Daily ETF. PANG Leverage Shares 2X Long PANW Daily ETF. PLTG ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 1.3,
+                "event_distribution": {
+                    "Other": 8,
+                    "Market-Trend": 2
+                },
+                "timeline_distribution": {
+                    "Short-term": 9,
+                    "Mid-term": 1
+                },
+                "article_count": 10
+            }
+        },
+        "TSLA": {
+            "mentions": 31,
+            "average_sentiment_score": 0.08675951612903224,
+            "overall_sentiment_label": "Neutral",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TSLA Jul 2025 302.500 put (TSLA250718P00302500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/TSLA250718P00302500/",
+                    "snippet": "10 hours ago ... Find the latest TSLA Jul 2025 302.500 put (TSLA250718P00302500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TSLA Jul 2025 322.500 call (TSLA250718C00322500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/TSLA250718C00322500/",
+                    "snippet": "10 hours ago ... Find the latest TSLA Jul 2025 322.500 call (TSLA250718C00322500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TSLA Jul 2025 365.000 put (TSLA250718P00365000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/TSLA250718P00365000/",
+                    "snippet": "10 hours ago ... Find the latest TSLA Jul 2025 365.000 put (TSLA250718P00365000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TSLA Jul 2025 262.500 call (TSLA250718C00262500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/TSLA250718C00262500/",
+                    "snippet": "10 hours ago ... Find the latest TSLA Jul 2025 262.500 call (TSLA250718C00262500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TSLA Jul 2025 297.500 call (TSLA250718C00297500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/TSLA250718C00297500/",
+                    "snippet": "10 hours ago ... Find the latest TSLA Jul 2025 297.500 call (TSLA250718C00297500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TSLA Jul 2025 335.000 put (TSLA250718P00335000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/TSLA250718P00335000/",
+                    "snippet": "10 hours ago ... Find the latest TSLA Jul 2025 335.000 put (TSLA250718P00335000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "GOOGL,DE,PNC,PFE,ELV,TSLA,SBUX,AMD,CME,MDT,MO,NOC ...",
+                    "url": "https://finance.yahoo.com/quotes/GOOGL,DE,PNC,PFE,ELV,TSLA,SBUX,AMD,CME,MDT,MO,NOC,TJX,AMT,LOW,XOM,CAT,ADBE,SNPS,CRH,GEV,MAR,BA,BLK,TGT,MDLZ,CVS,AMAT,CVX,NXP,MRK,PLD,UNH,DHR,MSFT,BX,BDX,LRCX,SPGI,DUK,FDX,EOG,BKNG,GD,PANW,PYPL,COP,USB,CL,CSX,NEE,MCD,LIN,LMT,KKR,CMCSA,SCHW,CDNS,PEP,PM/",
+                    "snippet": "10 hours ago ... View and compare GOOGL,DE,PNC,PFE,ELV,TSLA,SBUX,AMD,CME,MDT,MO,NOC,TJX,AMT,LOW,XOM,CAT,ADBE,SNPS,CRH,GEV,MAR,BA,BLK,TGT,MDLZ,CVS,AMAT,CVX,NXP,MRK,PLD,UNH ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TSLA Jul 2025 307.500 call (TSLA250718C00307500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/TSLA250718C00307500/",
+                    "snippet": "10 hours ago ... Find the latest TSLA Jul 2025 307.500 call (TSLA250718C00307500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TSLA Jul 2025 337.500 put (TSLA250718P00337500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/TSLA250718P00337500/",
+                    "snippet": "10 hours ago ... Find the latest TSLA Jul 2025 337.500 put (TSLA250718P00337500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TSLA Jul 2025 262.500 put (TSLA250718P00262500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/TSLA250718P00262500/",
+                    "snippet": "10 hours ago ... Find the latest TSLA Jul 2025 262.500 put (TSLA250718P00262500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 1.0,
+                "event_distribution": {
+                    "Other": 10
+                },
+                "timeline_distribution": {
+                    "Short-term": 10
+                },
+                "article_count": 10
+            }
+        },
+        "AMZN": {
+            "mentions": 25,
+            "average_sentiment_score": 0.18265292000000002,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT ...",
+                    "url": "https://finance.yahoo.com/quotes/TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT,MA,LLY,TRV,SPGI,GE,NFLX,NVDA,CEG,BSX,GS,ACN,AEP,ECL,TMUS,LMT,VRSK,HPE,AMZN/",
+                    "snippet": "4 hours ago ... ... CEG,BSX,GS,ACN,AEP,ECL,TMUS,LMT,VRSK,HPE,AMZN | Stock Prices | Quote Comparison - Yahoo Finance. Oops, something went wrong. News · Today's news ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AMZN Jul 2025 232.500 call (AMZN250718C00232500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AMZN250718C00232500/",
+                    "snippet": "10 hours ago ... Find the latest AMZN Jul 2025 232.500 call (AMZN250718C00232500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Long-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AMZN Jul 2025 237.500 put (AMZN250718P00237500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AMZN250718P00237500/",
+                    "snippet": "10 hours ago ... Find the latest AMZN Jul 2025 237.500 put (AMZN250718P00237500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Long-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "The Best Stocks to Invest $1,000 in Right Now",
+                    "url": "https://finance.yahoo.com/news/best-stocks-invest-1-000-084400785.html",
+                    "snippet": "53 minutes ago ... ... (NASDAQ: AMZN), and Vertex Pharmaceuticals (NASDAQ: VRTX). A smiling ... stock would sport a significantly higher earnings multiple. But ...",
+                    "sentiment_score": 0.1,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 2,
+                    "timeline_focus": "Long-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Amazon.com, Inc. (AMZN) Latest Stock News & Headlines - Yahoo ...",
+                    "url": "https://finance.yahoo.com/quote/AMZN/news/",
+                    "snippet": "10 hours ago ... Get the latest Amazon.com, Inc. (AMZN) stock news and headlines to help you in your trading and investing decisions.",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AMZN Jul 2025 202.500 put (AMZN250718P00202500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AMZN250718P00202500/",
+                    "snippet": "10 hours ago ... Find the latest AMZN Jul 2025 202.500 put (AMZN250718P00202500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Long-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TT,APO,GOOGL,DE,NDAQ,AAPL,AVGO,INTU,JPM,MSFT,TFC,ABT ...",
+                    "url": "https://finance.yahoo.com/quotes/TT,APO,GOOGL,DE,NDAQ,AAPL,AVGO,INTU,JPM,MSFT,TFC,ABT,MA,LLY,SPGI,TRV,GE,NFLX,NVDA,CEG,BSX,AEP,GS,ACN,ECL,TMUS,LMT,VRSK,HPE,AMZN/",
+                    "snippet": "9 hours ago ... ... CEG,BSX,AEP,GS,ACN,ECL,TMUS,LMT,VRSK,HPE,AMZN | Stock Prices | Quote Comparison - Yahoo Finance. Oops, something went wrong. News · Today's news ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AMZN Jul 2025 90.000 call (AMZN250718C00090000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AMZN250718C00090000/",
+                    "snippet": "10 hours ago ... Find the latest AMZN Jul 2025 90.000 call (AMZN250718C00090000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Long-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AMZN Jul 2025 85.000 put (AMZN250718P00085000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AMZN250718P00085000/",
+                    "snippet": "10 hours ago ... Find the latest AMZN Jul 2025 85.000 put (AMZN250718P00085000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Long-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Amazon.com, Inc. (AMZN) Is Helping To Reduce Prices, Says Jim ...",
+                    "url": "https://finance.yahoo.com/news/amazon-com-inc-amzn-helping-074628864.html",
+                    "snippet": "1 day ago ... Amazon.com, Inc. (NASDAQ:AMZN) is one of the stocks Jim Cramer ... News · Scores and schedules · Standings · Rankings · Stats · Teams · College ...",
+                    "sentiment_score": 0.5,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 3,
+                    "timeline_focus": "Mid-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 1.3,
+                "event_distribution": {
+                    "Other": 8,
+                    "Market-Trend": 2
+                },
+                "timeline_distribution": {
+                    "Short-term": 3,
+                    "Long-term": 6,
+                    "Mid-term": 1
+                },
+                "article_count": 10
+            }
+        },
+        "AMD": {
+            "mentions": 17,
+            "average_sentiment_score": 0.06054294117647059,
+            "overall_sentiment_label": "Neutral",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AMD Jul 2025 124.000 put (AMD250718P00124000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AMD250718P00124000/",
+                    "snippet": "10 hours ago ... Find the latest AMD Jul 2025 124.000 put (AMD250718P00124000) stock quote, history, news and other vital information to help you with your stock trading and ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "JNJ,PFE,ELV,TSLA,SBUX,AMD,CME,MDT,MO,NOC,TJX,AMT ...",
+                    "url": "https://finance.yahoo.com/quotes/JNJ,PFE,ELV,TSLA,SBUX,AMD,CME,MDT,MO,NOC,TJX,AMT,ORCL,LOW,CAT,XOM,CRH,ADBE,BRK-B,SNPS,GEV,BA,MAR,BLK,TGT,MDLZ,CVS,AMAT,C,VZ,CVX,PLD,DHR,MSFT,RTX,BDX,LRCX,SPGI,DUK,EOG,BKNG,GD,UBER,GE,PYPL,KO,USB,COP,CI,NXPI,CSX,ICE,MCD,NEE,LIN,LMT,CMCSA,SCHW,PEP,PM/",
+                    "snippet": "10 hours ago ... View and compare JNJ,PFE,ELV,TSLA,SBUX,AMD,CME,MDT,MO,NOC,TJX,AMT,ORCL,LOW,CAT,XOM,CRH,ADBE,BRK-B,SNPS,GEV,BA,MAR,BLK,TGT,MDLZ,CVS,AMAT,C,VZ,CVX,PLD,DHR ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT ...",
+                    "url": "https://finance.yahoo.com/quotes/TT,APO,GOOGL,DE,AAPL,NDAQ,AVGO,INTU,JPM,TFC,MSFT,ABT,MA,LLY,TRV,SPGI,GE,NFLX,NVDA,CEG,BSX,GS,ACN,AEP,ECL,TMUS,LMT,VRSK,HPE,AMZN/",
+                    "snippet": "4 hours ago ... ... AMD Near Buy Points. The stock market fell for the week but held near highs amid Trump tariffs. Inflation and earnings reports will be in focus.",
+                    "sentiment_score": 0.2,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 2,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AMD Jul 2025 131.000 put (AMD250718P00131000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AMD250718P00131000/",
+                    "snippet": "10 hours ago ... Find the latest AMD Jul 2025 131.000 put (AMD250718P00131000) stock quote, history, news and other vital information to help you with your stock trading and ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "GOOGL,DE,ELV,PFE,TSLA,SBUX,AMD,MDT,MO,TJX,NOC,AMT ...",
+                    "url": "https://finance.yahoo.com/quotes/GOOGL,DE,ELV,PFE,TSLA,SBUX,AMD,MDT,MO,TJX,NOC,AMT,ORCL,LOW,CAT,NOW,XOM,CRH,SNPS,ADBE,GEV,BA,MRVL,MAR,TGT,BLK,MDLZ,AMAT,CVS,C,CVX,NXP,MRK,PLD,UNH,DHR,MSFT,BX,BDX,SPGI,DUK,EOG,GD,BKNG,PYPL,BAC,KO,COP,USB,CSX,MCD,NEE,LIN,LMT,CMCSA,KKR,SCHW,PEP,PM,ETN/",
+                    "snippet": "5 hours ago ... View and compare GOOGL,DE,ELV,PFE,TSLA,SBUX,AMD,MDT,MO,TJX,NOC,AMT,ORCL,LOW,CAT,NOW,XOM,CRH,SNPS,ADBE,GEV,BA,MRVL,MAR,TGT,BLK,MDLZ,AMAT,CVS ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "GOOGL,PNC,SLB,ABNB,PFE,ELV,OXY,TSLA,SBUX,AMD,CME ...",
+                    "url": "https://finance.yahoo.com/quotes/GOOGL,PNC,SLB,ABNB,PFE,ELV,OXY,TSLA,SBUX,AMD,CME,MDT,MO,NOC,SNOW,AMT,EMR,LOW,XOM,BRK-B,CRH,ADBE,MAR,BA,TGT,BLK,MDLZ,CVS,AMAT,C,CVX,MRK,PLD,MSFT,BDX,RTX,LRCX,SPGI,DUK,FDX,SO,GD,BKNG,UBER,GE,PANW,PYPL,GOOG,KO,USB,CI,MNST,NXPI,CSX,BMY,MCD,NEE,LIN,SCHW,PEP/",
+                    "snippet": "10 hours ago ... View and compare GOOGL,PNC,SLB,ABNB,PFE,ELV,OXY,TSLA,SBUX,AMD,CME,MDT,MO,NOC,SNOW,AMT,EMR,LOW,XOM,BRK-B,CRH,ADBE,MAR,BA,TGT,BLK,MDLZ,CVS,AMAT,C,CVX,MRK,PLD ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "GOOGL,DE,ELV,PFE,TSLA,SBUX,AMD,MDT,MO,NOC,TJX,AMT ...",
+                    "url": "https://finance.yahoo.com/quotes/GOOGL,DE,ELV,PFE,TSLA,SBUX,AMD,MDT,MO,NOC,TJX,AMT,ORCL,LOW,XOM,CAT,NOW,CRH,ADBE,SNPS,GEV,BA,MRVL,MAR,BLK,TGT,CVS,MDLZ,AMAT,C,CVX,MRK,NXP,PLD,UNH,DHR,MSFT,BX,BDX,SPGI,DUK,EOG,BKNG,GD,PYPL,KO,BAC,USB,COP,CSX,NEE,MCD,LIN,LMT,KKR,CMCSA,SCHW,PEP,PM,ETN/",
+                    "snippet": "10 hours ago ... View and compare GOOGL,DE,ELV,PFE,TSLA,SBUX,AMD,MDT,MO,NOC,TJX,AMT,ORCL,LOW,XOM,CAT,NOW,CRH,ADBE,SNPS,GEV,BA,MRVL,MAR,BLK,TGT,CVS,MDLZ,AMAT,C,CVX,MRK,NXP ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "GOOGL,DE,PNC,PFE,ELV,TSLA,SBUX,AMD,CME,MDT,MO,NOC ...",
+                    "url": "https://finance.yahoo.com/quotes/GOOGL,DE,PNC,PFE,ELV,TSLA,SBUX,AMD,CME,MDT,MO,NOC,TJX,AMT,LOW,XOM,CAT,ADBE,SNPS,CRH,GEV,MAR,BA,BLK,TGT,MDLZ,CVS,AMAT,CVX,NXP,MRK,PLD,UNH,DHR,MSFT,BX,BDX,LRCX,SPGI,DUK,FDX,EOG,BKNG,GD,PANW,PYPL,COP,USB,CL,CSX,NEE,MCD,LIN,LMT,KKR,CMCSA,SCHW,CDNS,PEP,PM/",
+                    "snippet": "10 hours ago ... View and compare GOOGL,DE,PNC,PFE,ELV,TSLA,SBUX,AMD,CME,MDT,MO,NOC,TJX,AMT,LOW,XOM,CAT,ADBE,SNPS,CRH,GEV,MAR,BA,BLK,TGT,MDLZ,CVS,AMAT,CVX,NXP,MRK,PLD,UNH ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AMD Jul 2025 119.000 put (AMD250718P00119000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AMD250718P00119000/",
+                    "snippet": "10 hours ago ... Find the latest AMD Jul 2025 119.000 put (AMD250718P00119000) stock quote, history, news and other vital information to help you with your stock trading and ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "AMD Jul 2025 123.000 put (AMD250718P00123000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/AMD250718P00123000/",
+                    "snippet": "10 hours ago ... Find the latest AMD Jul 2025 123.000 put (AMD250718P00123000) stock quote, history, news and other vital information to help you with your stock trading and ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 1.1,
+                "event_distribution": {
+                    "Other": 9,
+                    "Market-Trend": 1
+                },
+                "timeline_distribution": {
+                    "Short-term": 10
+                },
+                "article_count": 10
+            }
+        },
+        "CRYPTO:BTC": {
+            "mentions": 94,
+            "average_sentiment_score": 0.2288072234042553,
+            "overall_sentiment_label": "Somewhat-Bullish",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Latest Crypto & Bitcoin News",
+                    "url": "https://finance.yahoo.com/topic/crypto/",
+                    "snippet": "10 hours ago ... Bitcoin (CRYPTO: BTC) has had a successful run during 2025. Motley Fool • 5 hours ago. BTC-USD · ^SPX ...",
+                    "sentiment_score": 0.8,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 3,
+                    "timeline_focus": "Mid-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Coinbase Global, Inc. (COIN.VI) Latest Stock News & Headlines ...",
+                    "url": "https://finance.yahoo.com/quote/COIN.VI/news/",
+                    "snippet": "10 hours ago ... Bitcoin (CRYPTO: BTC) has surged to a new all-time high of $118,909 on ... New partnership brings real-time market data to Perplexity's AI tools ...",
+                    "sentiment_score": 1.0,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 5,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Latest Stock Market News",
+                    "url": "https://finance.yahoo.com/topic/stock-market-news/",
+                    "snippet": "10 hours ago ... Bitcoin (CRYPTO: BTC) has had a successful run during 2025. Motley Fool • 5 ... This 3 Stock Portfolio Provides Monthly Income. While most stocks pay ...",
+                    "sentiment_score": 0.8,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 3,
+                    "timeline_focus": "Mid-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Financial Data & Stock Exchanges",
+                    "url": "https://finance.yahoo.com/sectors/financial-services/financial-data-stock-exchanges/",
+                    "snippet": "10 hours ago ... Bitcoin (CRYPTO: BTC) has surged to a new all-time high of $118,909 on ... The New York Stock Exchange (NYSE) provides a daily pre-market update ...",
+                    "sentiment_score": 1.0,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 5,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Ethereum USD (ETH-USD) Latest Stock News & Headlines - Yahoo ...",
+                    "url": "https://finance.yahoo.com/quote/ETH-USD/news/",
+                    "snippet": "10 hours ago ... Earnings Calendar · Economic Calendar · Stock Comparison · Advanced Chart · Currency ... Bitcoin (CRYPTO: BTC) has surged to a new all-time high of $118,909 on ...",
+                    "sentiment_score": 1.0,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 5,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Dogecoin USD (DOGE-USD) Latest Stock News & Headlines ...",
+                    "url": "https://finance.yahoo.com/quote/DOGE-USD/news/",
+                    "snippet": "10 hours ago ... Earnings Calendar · Economic Calendar · Stock Comparison · Advanced Chart ... Cryptocurrency Ticker Price Bitcoin (CRYPTO: BTC) $109,110.29 Ethereum (CRYPTO: ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Tepleton USD (TEP-USD) Latest Stock News & Headlines - Yahoo ...",
+                    "url": "https://finance.yahoo.com/quote/TEP-USD/news/",
+                    "snippet": "1 day ago ... 3 Stocks to Buy Before Q2 Earnings and Hold Forever: TSM, NFLX, FAST ... Bitcoin, (CRYPTO: BTC) on the other hand, faces no such threat. Motley Fool ...",
+                    "sentiment_score": 0.5,
+                    "event_type": "Other",
+                    "impact_rating": 2,
+                    "timeline_focus": "Mid-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "MEGAHERO USD (MEGAHERO-USD) Latest Stock News ...",
+                    "url": "https://finance.yahoo.com/quote/MEGAHERO-USD/news/",
+                    "snippet": "1 day ago ... Earnings · Tech · Housing · Crypto · Mergers & IPOs · Electric Vehicles · Inflation ... Bitcoin (CRYPTO: BTC) has surged to a new all-time high of $118,909 on ...",
+                    "sentiment_score": 1.0,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 5,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Baby Miggles USD (BMIGGLES-USD) Latest Stock News ...",
+                    "url": "https://finance.yahoo.com/quote/BMIGGLES-USD/news/",
+                    "snippet": "1 day ago ... Bitcoin Just Hit a New All-Time High. But Is the Leading Cryptocurrency a Buy? Break out the party hats, because Bitcoin (CRYPTO: BTC) just set a fresh ...",
+                    "sentiment_score": 1.0,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 4,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Is Bitcoin Going to Surge in July?",
+                    "url": "https://finance.yahoo.com/news/bitcoin-going-surge-july-090000021.html",
+                    "snippet": "1 day ago ... ... (CRYPTO: BTC) looks determined to light the sky itself. The ... News · Scores and schedules · Standings · Rankings · Stats · Teams · College ...",
+                    "sentiment_score": 0.7,
+                    "event_type": "Market-Trend",
+                    "impact_rating": 3,
+                    "timeline_focus": "Short-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 3.6,
+                "event_distribution": {
+                    "Market-Trend": 8,
+                    "Other": 2
+                },
+                "timeline_distribution": {
+                    "Mid-term": 3,
+                    "Short-term": 7
+                },
+                "article_count": 10
+            }
+        },
+        "META": {
+            "mentions": 54,
+            "average_sentiment_score": 0.09175125925925924,
+            "overall_sentiment_label": "Neutral",
+            "llm_found_news": [
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "META Jul 2025 365.000 put (META250718P00365000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/META250718P00365000/",
+                    "snippet": "10 hours ago ... Find the latest META Jul 2025 365.000 put (META250718P00365000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "Should You Buy Meta Platforms Stock Before July 30?",
+                    "url": "https://finance.yahoo.com/news/buy-meta-platforms-stock-july-082800659.html",
+                    "snippet": "1 hour ago ... Meta is using artificial intelligence (AI) to keep those users engaged, which could be a major tailwind for its revenue over time.",
+                    "sentiment_score": 0.8,
+                    "event_type": "Product/Service",
+                    "impact_rating": 3,
+                    "timeline_focus": "Long-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "META Jul 2025 850.000 call (META250718C00850000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/META250718C00850000/",
+                    "snippet": "10 hours ago ... Find the latest META Jul 2025 850.000 call (META250718C00850000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "META Jul 2025 677.500 put (META250718P00677500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/META250718P00677500/",
+                    "snippet": "10 hours ago ... Find the latest META Jul 2025 677.500 put (META250718P00677500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "META Jul 2025 1120.000 call (META250718C01120000) Stock ...",
+                    "url": "https://finance.yahoo.com/quote/META250718C01120000/",
+                    "snippet": "10 hours ago ... Find the latest META Jul 2025 1120.000 call (META250718C01120000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "META Jul 2025 835.000 put (META250718P00835000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/META250718P00835000/",
+                    "snippet": "10 hours ago ... Find the latest META Jul 2025 835.000 put (META250718P00835000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "META Jul 2025 280.000 call (META250718C00280000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/META250718C00280000/",
+                    "snippet": "10 hours ago ... Find the latest META Jul 2025 280.000 call (META250718C00280000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "META Jul 2025 697.500 call (META250718C00697500) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/META250718C00697500/",
+                    "snippet": "10 hours ago ... Find the latest META Jul 2025 697.500 call (META250718C00697500) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "META Jul 2025 960.000 call (META250718C00960000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/META250718C00960000/",
+                    "snippet": "10 hours ago ... Find the latest META Jul 2025 960.000 call (META250718C00960000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                },
+                {
+                    "source": "finance.yahoo.com",
+                    "title": "META Jul 2025 855.000 put (META250718P00855000) Stock Price ...",
+                    "url": "https://finance.yahoo.com/quote/META250718P00855000/",
+                    "snippet": "10 hours ago ... Find the latest META Jul 2025 855.000 put (META250718P00855000) stock quote, history, news and other vital information to help you with your stock trading ...",
+                    "sentiment_score": 0.0,
+                    "event_type": "Other",
+                    "impact_rating": 1,
+                    "timeline_focus": "Short-term"
+                }
+            ],
+            "llm_analysis_summary": {
+                "average_impact_rating": 1.2,
+                "event_distribution": {
+                    "Other": 9,
+                    "Product/Service": 1
+                },
+                "timeline_distribution": {
+                    "Short-term": 9,
+                    "Long-term": 1
+                },
+                "article_count": 10
+            }
+        },
+        "NFLX": {
+            "mentions": 13,
+            "average_sentiment_score": 0.2500350769230769,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "INTC": {
+            "mentions": 7,
+            "average_sentiment_score": 0.15946514285714283,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "IBM": {
+            "mentions": 1,
+            "average_sentiment_score": 0.417384,
+            "overall_sentiment_label": "Bullish"
+        },
+        "ORCL": {
+            "mentions": 4,
+            "average_sentiment_score": 0.29315725000000004,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "CSCO": {
+            "mentions": 2,
+            "average_sentiment_score": 0.2286665,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "ADBE": {
+            "mentions": 2,
+            "average_sentiment_score": 0.368105,
+            "overall_sentiment_label": "Bullish"
+        },
+        "AVGO": {
+            "mentions": 5,
+            "average_sentiment_score": 0.1865818,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "QCOM": {
+            "mentions": 6,
+            "average_sentiment_score": 0.14728566666666668,
+            "overall_sentiment_label": "Neutral"
+        },
+        "ASML": {
+            "mentions": 2,
+            "average_sentiment_score": 0.22556,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "AMAT": {
+            "mentions": 2,
+            "average_sentiment_score": 0.256322,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "MU": {
+            "mentions": 1,
+            "average_sentiment_score": 0.269138,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "TXN": {
+            "mentions": 1,
+            "average_sentiment_score": 0.340488,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "LRCX": {
+            "mentions": 3,
+            "average_sentiment_score": 0.31951833333333335,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "TSM": {
+            "mentions": 5,
+            "average_sentiment_score": 0.04228540000000001,
+            "overall_sentiment_label": "Neutral"
+        },
+        "ON": {
+            "mentions": 1,
+            "average_sentiment_score": 0.129299,
+            "overall_sentiment_label": "Neutral"
+        },
+        "MRVL": {
+            "mentions": 1,
+            "average_sentiment_score": -0.095624,
+            "overall_sentiment_label": "Neutral"
+        },
+        "PLTR": {
+            "mentions": 6,
+            "average_sentiment_score": 0.183779,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "RIVN": {
+            "mentions": 1,
+            "average_sentiment_score": 0.008064,
+            "overall_sentiment_label": "Neutral"
+        },
+        "LCID": {
+            "mentions": 1,
+            "average_sentiment_score": 0.237389,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "NIO": {
+            "mentions": 2,
+            "average_sentiment_score": 0.2377465,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "XPEV": {
+            "mentions": 3,
+            "average_sentiment_score": 0.449549,
+            "overall_sentiment_label": "Bullish"
+        },
+        "F": {
+            "mentions": 2,
+            "average_sentiment_score": -0.08142949999999999,
+            "overall_sentiment_label": "Neutral"
+        },
+        "GM": {
+            "mentions": 2,
+            "average_sentiment_score": 0.32982900000000004,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "ENPH": {
+            "mentions": 3,
+            "average_sentiment_score": -0.009723333333333339,
+            "overall_sentiment_label": "Neutral"
+        },
+        "XOM": {
+            "mentions": 4,
+            "average_sentiment_score": 0.17511400000000002,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "CVX": {
+            "mentions": 3,
+            "average_sentiment_score": 0.4019793333333333,
+            "overall_sentiment_label": "Bullish"
+        },
+        "COP": {
+            "mentions": 1,
+            "average_sentiment_score": 0.083615,
+            "overall_sentiment_label": "Neutral"
+        },
+        "SLB": {
+            "mentions": 1,
+            "average_sentiment_score": -0.008998,
+            "overall_sentiment_label": "Neutral"
+        },
+        "BP": {
+            "mentions": 1,
+            "average_sentiment_score": 0.336593,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "PSX": {
+            "mentions": 2,
+            "average_sentiment_score": 0.4124025,
+            "overall_sentiment_label": "Bullish"
+        },
+        "JNJ": {
+            "mentions": 9,
+            "average_sentiment_score": 0.13467677777777776,
+            "overall_sentiment_label": "Neutral"
+        },
+        "PFE": {
+            "mentions": 6,
+            "average_sentiment_score": 0.17120916666666666,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "ABBV": {
+            "mentions": 3,
+            "average_sentiment_score": 0.36022166666666666,
+            "overall_sentiment_label": "Bullish"
+        },
+        "LLY": {
+            "mentions": 2,
+            "average_sentiment_score": 0.286416,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "UNH": {
+            "mentions": 5,
+            "average_sentiment_score": 0.1431104,
+            "overall_sentiment_label": "Neutral"
+        },
+        "TMO": {
+            "mentions": 1,
+            "average_sentiment_score": 0.552573,
+            "overall_sentiment_label": "Bullish"
+        },
+        "ABT": {
+            "mentions": 1,
+            "average_sentiment_score": 0.157193,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "BMY": {
+            "mentions": 3,
+            "average_sentiment_score": 0.147988,
+            "overall_sentiment_label": "Neutral"
+        },
+        "VRTX": {
+            "mentions": 2,
+            "average_sentiment_score": 0.07124749999999999,
+            "overall_sentiment_label": "Neutral"
+        },
+        "BAC": {
+            "mentions": 12,
+            "average_sentiment_score": 0.07917858333333333,
+            "overall_sentiment_label": "Neutral"
+        },
+        "WFC": {
+            "mentions": 15,
+            "average_sentiment_score": 0.09195333333333332,
+            "overall_sentiment_label": "Neutral"
+        },
+        "GS": {
+            "mentions": 14,
+            "average_sentiment_score": 0.09861442857142856,
+            "overall_sentiment_label": "Neutral"
+        },
+        "MS": {
+            "mentions": 21,
+            "average_sentiment_score": 0.053328047619047615,
+            "overall_sentiment_label": "Neutral"
+        },
+        "SCHW": {
+            "mentions": 5,
+            "average_sentiment_score": 0.2367908,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "PYPL": {
+            "mentions": 3,
+            "average_sentiment_score": 0.013120666666666664,
+            "overall_sentiment_label": "Neutral"
+        },
+        "MA": {
+            "mentions": 5,
+            "average_sentiment_score": 0.28077620000000003,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "V": {
+            "mentions": 4,
+            "average_sentiment_score": 0.17970025,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "CRYPTO:ETH": {
+            "mentions": 40,
+            "average_sentiment_score": 0.1481269,
+            "overall_sentiment_label": "Neutral"
+        },
+        "CRYPTO:SOL": {
+            "mentions": 2,
+            "average_sentiment_score": 0.19996,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "CRYPTO:ADA": {
+            "mentions": 3,
+            "average_sentiment_score": 0.187399,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "CRYPTO:XRP": {
+            "mentions": 13,
+            "average_sentiment_score": 0.23641907692307693,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "CRYPTO:DOGE": {
+            "mentions": 12,
+            "average_sentiment_score": 0.19900074999999998,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        },
+        "CRYPTO:LINK": {
+            "mentions": 1,
+            "average_sentiment_score": 0.271629,
+            "overall_sentiment_label": "Somewhat-Bullish"
+        }
+    }
+}

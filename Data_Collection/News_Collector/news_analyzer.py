@@ -1,192 +1,163 @@
+# news_analyzer.py (Version 3.0: Ultra-Sensitive Quantitative Analysis)
+
 import pandas as pd
 import logging
 import os
-import google.generativeai as genai  
+import json
+import requests
+import time # API 호출 간의 지연을 위해 추가
+from collections import defaultdict
+import google.generativeai as genai
 
 logger = logging.getLogger(__name__)
 
 class NewsAnalyzer:
     def __init__(self, dataframe: pd.DataFrame):
-        """
-        Initializes the analyzer with a pre-processed pandas DataFrame.
-        Also initializes the Gemini LLM client if the API key is available.
-        """
         self.df = dataframe
         logger.info(f"NewsAnalyzer initialized with a DataFrame of shape {self.df.shape}.")
-
         self.llm_model = None
         try:
             gemini_api_key = os.getenv("GEMINI_API_KEY")
             if not gemini_api_key:
-                logger.warning("GEMINI_API_KEY environment variable not found. LLM analysis will be skipped.")
+                logger.warning("GEMINI_API_KEY not found. LLM analysis will be skipped.")
             else:
                 genai.configure(api_key=gemini_api_key)
-                self.llm_model = genai.GenerativeModel('gemini-1.5-flash')
-                logger.info("Gemini 1.5 Flash model initialized successfully.")
+                self.llm_model = genai.GenerativeModel('gemini-1.5-pro-latest') # 고성능 모델 사용
+                logger.info("Gemini 1.5 Pro model initialized for high-sensitivity analysis.")
         except Exception as e:
             logger.error(f"Failed to initialize Gemini LLM model: {e}", exc_info=True)
-            self.llm_model = None
-    
-    def _get_sentiment_label(self, score: float) -> str:
-        """Categorizes a sentiment score into a human-readable label."""
-        if score is None:
-            return "Neutral"
-        if score >= 0.35:
-            return "Bullish"
-        elif score >= 0.15:
-            return "Somewhat-Bullish"
-        elif score < -0.35:
-            return "Bearish"
-        elif score < -0.15:
-            return "Somewhat-Bearish"
-        else:
-            return "Neutral"
 
-    def _get_llm_summary_for_ticker(self, ticker: str, top_n_articles=5) -> str:
+    def _search_google_for_news(self, ticker: str, total_articles=10) -> list:
         """
-        ADDED: 특정 티커에 대한 뉴스 기사들을 모아 LLM에게 요약 및 인사이트를 요청합니다.
+        CHANGED: Fetches up to 100 articles by paginating through Google Search API results.
         """
-        if not self.llm_model:
-            return "LLM model is not available."
+        api_key = os.getenv("GOOGLE_API_KEY")
+        pse_id = os.getenv("PSE_ID")
+        if not api_key or not pse_id:
+            logger.warning("GOOGLE_API_KEY or PSE_ID not found. Google search is skipped.")
+            return []
 
-        if 'ticker_sentiment' not in self.df.columns or self.df['ticker_sentiment'].isna().all():
-            return "No ticker sentiment data available for LLM analysis."
-            
-        temp_df = self.df.dropna(subset=['ticker_sentiment']).explode('ticker_sentiment')
-        ticker_articles_df = temp_df[temp_df['ticker_sentiment'].apply(lambda x: isinstance(x, dict) and x.get('ticker') == ticker)]
+        all_articles = []
+        num_requests = (total_articles + 9) // 10  # 100개 기사를 위해 10번 요청
 
-        recent_articles = ticker_articles_df.sort_values(by='published_at', ascending=False).head(top_n_articles)
+        for i in range(num_requests):
+            start_index = i * 10 + 1
+            url = "https://www.googleapis.com/customsearch/v1"
+            params = {
+                'key': api_key, 'cx': pse_id,
+                'q': f'"{ticker}" stock OR equity financial news OR corporate guidance',
+                'sort': 'date', 'num': 10, 'start': start_index
+            }
+            try:
+                response = requests.get(url, params=params)
+                response.raise_for_status()
+                search_results = response.json().get('items', [])
+                if not search_results:
+                    break # 더 이상 결과가 없으면 중단
+                
+                for item in search_results:
+                    all_articles.append({"source": item['displayLink'], "title": item['title'], "url": item['link'], "snippet": item.get('snippet', '')})
+                
+                time.sleep(0.1) # API 요청 간 짧은 지연시간
 
-        if recent_articles.empty:
-            return f"No relevant articles found for ticker {ticker} to generate a summary."
+            except requests.exceptions.RequestException as e:
+                logger.error(f"Google Search API request failed for {ticker} at page {i+1}: {e}")
+                break
+        
+        logger.info(f"Fetched a total of {len(all_articles)} articles for {ticker}.")
+        return all_articles
 
-        news_texts = "\n\n---\n\n".join(
-            f"Title: {row['title']}\nSummary: {row.get('summary') or 'Not available.'}"
-            for _, row in recent_articles.iterrows()
-        )
+    def _analyze_searched_news_with_llm(self, articles: list, ticker: str) -> list:
+        """
+        CHANGED: Re-engineered prompt for ultra-sensitive scoring on a -1000 to 1000 scale.
+        """
+        if not self.llm_model or not articles:
+            return []
 
+        articles_text = "\n\n".join([f"Article {i+1}:\nTitle: {article['title']}\nSnippet: {article['snippet']}" for i, article in enumerate(articles)])
+        
         prompt = f"""
-        You are a highly experienced Wall Street analyst providing a report to a key client.
-        Based *only* on the provided news articles about the ticker "{ticker}", generate a concise, insightful summary in Korean.
+        You are a hyper-sensitive quantitative analysis engine. Your task is to analyze financial news for the ticker "{ticker}" with extreme precision.
+        
+        **Instructions:**
+        1.  **Score Range:** Assign a `sentiment_score` for each article on a scale from **-1000 (catastrophic news)** to **+1000 (breakthrough news)**.
+        2.  **High Sensitivity:** DO NOT default to neutral scores like 0. A slightly positive earnings report might be a +150, while a major new product launch could be a +750. A minor legal issue might be a -120, while a failed clinical trial could be a -950. Capture every nuance.
+        3.  **Quant-Ready Output:** Provide two other quantitative metrics: `impact_rating` (1-5 scale of market-moving potential) and `novelty_score` (1-5 scale of how new or surprising the information is).
+        4.  **Strict JSON Output:** Return ONLY a JSON array of objects. The array must have exactly {len(articles)} objects. Each object MUST contain these keys: `sentiment_score` (integer), `impact_rating` (integer), `novelty_score` (integer).
 
-        Your summary must include:
-        1.  **Overall Sentiment**: What is the dominant sentiment (e.g., positive, negative, mixed) and why?
-        2.  **Key Drivers**: Identify the main factors or events driving the news (e.g., earnings reports, product launches, market competition, regulatory news).
-        3.  **Potential Outlook**: Based on the articles, what is the potential short-term outlook for the stock?
-
-        Do not use any information beyond the articles provided below. Be objective and professional.
-
-        Provided News Articles:
-        ---
-        {news_texts}
+        Analyze these articles now:
+        {articles_text}
         """
-
         try:
-            response = self.llm_model.generate_content(prompt)
-            return response.text.strip()
+            response = self.llm_model.generate_content(prompt, generation_config={"max_output_tokens": 8192, "temperature": 0.0})
+            analysis_results = json.loads(response.text.strip().lstrip("```json").rstrip("```"))
+            
+            for i, article in enumerate(articles):
+                if i < len(analysis_results):
+                    article.update(analysis_results[i])
+            return articles
         except Exception as e:
-            logger.error(f"An error occurred during Gemini API call for ticker {ticker}: {e}", exc_info=True)
-            return f"Error: Failed to generate LLM summary for {ticker}."
-
+            logger.error(f"Failed to perform high-sensitivity analysis with LLM: {e}")
+            return []
+            
     def run_analysis(self, top_n_topics=50, top_n_tickers=5, sentiment_interval='D', specific_tickers=None):
-        """
-        Performs various analyses, now including LLM-generated insights at the end.
-        """
-        logger.info("Starting news data analysis.")
+        logger.info("Starting news data analysis (Version 3.0: Ultra-Sensitive Quantitative).")
         analysis_results = {}
+        if self.df.empty: return {}
 
-        if self.df.empty:
-            logger.warning("No data to analyze. DataFrame is empty.")
-            return {}
+        # --- Base Data Aggregation (Scraped + LLM) ---
+        all_ticker_data = defaultdict(lambda: {"mentions": 0, "sentiment_scores": [], "impact_ratings": [], "novelty_scores": []})
 
-        if 'published_at' in self.df.columns and 'sentiment_score' in self.df.columns:
-            temp_df = self.df.set_index('published_at')
-            sentiment_over_time = temp_df['sentiment_score'].resample(sentiment_interval).mean().dropna()
-            analysis_results['sentiment_over_time'] = {str(k.date()): v for k, v in sentiment_over_time.items()}
-            logger.info(f"Sentiment over time calculated for interval '{sentiment_interval}'.")
-
-        if 'topics' in self.df.columns and self.df['topics'].notna().any():
-            topic_scores = {}
-            exploded_topics = self.df.dropna(subset=['topics']).explode('topics')
-            for _, row in exploded_topics.iterrows():
-                topic_info = row['topics']
-                if isinstance(topic_info, dict):
-                    topic = topic_info.get('topic')
-                    try:
-                        relevance = float(topic_info.get('relevance_score', 0.0))
-                        if topic:
-                            topic_scores[topic] = topic_scores.get(topic, 0) + relevance
-                    except (ValueError, TypeError):
-                        continue
-            sorted_topics = sorted(topic_scores.items(), key=lambda item: item[1], reverse=True)
-            analysis_results['top_topics'] = dict(sorted_topics[:top_n_topics])
-            logger.info(f"Top {top_n_topics} topics identified.")
-        else:
-            analysis_results['top_topics'] = {}
-
-        if 'api_source' in self.df.columns and 'sentiment_score' in self.df.columns:
-            api_source_sentiment = self.df.groupby('api_source')['sentiment_score'].mean().to_dict()
-            analysis_results['api_source_sentiment'] = api_source_sentiment
-            logger.info("Average sentiment by API source calculated.")
-        else:
-            analysis_results['api_source_sentiment'] = {}
-
-        top_ticker_sentiment_results = {}
+        # 1. Process originally scraped data
         if 'ticker_sentiment' in self.df.columns and self.df['ticker_sentiment'].notna().any():
-            all_ticker_data = {}
             exploded_tickers = self.df.dropna(subset=['ticker_sentiment']).explode('ticker_sentiment')
             for _, row in exploded_tickers.iterrows():
                 ts_info = row['ticker_sentiment']
-                if isinstance(ts_info, dict):
-                    ticker = ts_info.get('ticker')
-                    try:
-                        score = float(ts_info.get('ticker_sentiment_score', 0.0))
-                        label = ts_info.get('ticker_sentiment_label', 'Neutral')
-                        if ticker:
-                            if ticker not in all_ticker_data:
-                                all_ticker_data[ticker] = {
-                                    "mentions": 0, "sentiment_scores_list": [],
-                                    "sentiment_distribution": {'Bullish': 0, 'Somewhat-Bullish': 0, 'Neutral': 0, 'Somewhat-Bearish': 0, 'Bearish': 0}
-                                }
-                            all_ticker_data[ticker]["mentions"] += 1
-                            all_ticker_data[ticker]["sentiment_scores_list"].append(score)
-                            all_ticker_data[ticker]["sentiment_distribution"][label] += 1
-                    except (ValueError, TypeError):
-                        continue
-            target_tickers_for_analysis = []
-            if specific_tickers:
-                target_tickers_for_analysis = [t for t in specific_tickers if t in all_ticker_data]
-            else:
-                sorted_by_mentions = sorted(all_ticker_data.items(), key=lambda item: item[1]['mentions'], reverse=True)
-                target_tickers_for_analysis = [ticker for ticker, data in sorted_by_mentions[:top_n_tickers]]
-            
-            if target_tickers_for_analysis:
-                logger.info(f"Analyzing ticker sentiment for: {', '.join(target_tickers_for_analysis)}")
-                for ticker in target_tickers_for_analysis:
-                    data = all_ticker_data[ticker]
-                    avg_sentiment = sum(data["sentiment_scores_list"]) / len(data["sentiment_scores_list"])
-                    top_ticker_sentiment_results[ticker] = {
-                        "mentions": data["mentions"], "average_sentiment_score": avg_sentiment,
-                        "overall_sentiment_label": self._get_sentiment_label(avg_sentiment),
-                        "sentiment_distribution": data["sentiment_distribution"]
-                    }
-        analysis_results['top_ticker_sentiment'] = top_ticker_sentiment_results
+                if isinstance(ts_info, dict) and ts_info.get('ticker'):
+                    ticker = ts_info['ticker']
+                    # Convert original -1 to 1 score to the new -1000 to 1000 scale
+                    scaled_score = float(ts_info.get('ticker_sentiment_score', 0.0)) * 1000
+                    all_ticker_data[ticker]["mentions"] += 1
+                    all_ticker_data[ticker]["sentiment_scores"].append(scaled_score)
 
-        if self.llm_model and top_ticker_sentiment_results:
-            logger.info("--- Starting LLM-powered Insight Analysis ---")
-            llm_insights = {}
-
-            tickers_to_summarize = list(top_ticker_sentiment_results.keys())
-            
-            for ticker in tickers_to_summarize:
-                logger.info(f"Generating LLM summary for ticker: {ticker}")
-                summary = self._get_llm_summary_for_ticker(ticker)
-                llm_insights[ticker] = summary
-
-            analysis_results['llm_generated_insights'] = llm_insights
-            logger.info("LLM analysis finished.")
-        elif not self.llm_model:
-            logger.info("LLM analysis skipped because the model is not available.")
+        # 2. Augment with new, highly sensitive LLM analysis
+        target_tickers = specific_tickers if specific_tickers else [t for t, d in sorted(all_ticker_data.items(), key=lambda item: item[1]['mentions'], reverse=True)[:top_n_tickers]]
         
-        logger.info("News data analysis finished.")
+        logger.info("--- Starting Ultra-Sensitive LLM News Augmentation ---")
+        for ticker in target_tickers:
+            logger.info(f"Fetching and analyzing up to 100 news articles for {ticker}...")
+            searched_articles = self._search_google_for_news(ticker)
+            if searched_articles:
+                analyzed_articles = self._analyze_searched_news_with_llm(searched_articles, ticker)
+                if analyzed_articles:
+                    # Add raw analysis to a new key for full data transparency
+                    all_ticker_data[ticker]['llm_analyzed_news'] = analyzed_articles
+                    for article in analyzed_articles:
+                        all_ticker_data[ticker]['mentions'] += 1
+                        all_ticker_data[ticker]['sentiment_scores'].append(article.get('sentiment_score', 0))
+                        all_ticker_data[ticker]['impact_ratings'].append(article.get('impact_rating', 0))
+                        all_ticker_data[ticker]['novelty_scores'].append(article.get('novelty_score', 0))
+
+        # --- Final Calculation & Structuring ---
+        final_ticker_analysis = {}
+        for ticker in target_tickers:
+            data = all_ticker_data[ticker]
+            scores = data['sentiment_scores']
+            impacts = data['impact_ratings']
+            novelties = data['novelty_scores']
+            
+            if not scores: continue # Skip tickers with no data
+
+            # REMOVED: All categorical labels. Only quantitative metrics remain.
+            final_ticker_analysis[ticker] = {
+                "total_mentions": data['mentions'],
+                "average_sentiment_score": sum(scores) / len(scores) if scores else 0,
+                "sentiment_std_dev": pd.Series(scores).std() if len(scores) > 1 else 0, # 감성 점수 변동성
+                "average_impact_rating": sum(impacts) / len(impacts) if impacts else 0,
+                "average_novelty_score": sum(novelties) / len(novelties) if novelties else 0,
+                "llm_analyzed_news_count": len(impacts) # LLM이 분석한 기사 수
+            }
+        
+        analysis_results['quantitative_ticker_analysis'] = final_ticker_analysis
+        logger.info("Quantitative analysis finished.")
         return analysis_results

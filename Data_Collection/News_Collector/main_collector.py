@@ -150,9 +150,6 @@ if __name__ == "__main__":
     # ETF 섹터/테마
     "QQQ", "VTI", "ARKK", "IWM", "DIA", "VOO", "SMH", "XLK", "XLF", "XLE",
     
-    # 중국/신흥시장
-    "BABA", "JD", "PDD", "TCEHY", "BIDU", "KWEB", "EWZ", "EEM", "FXI", "MCHI",
-    
     # Crypto 확장
     "CRYPTO:ETH", "CRYPTO:SOL", "CRYPTO:ADA", "CRYPTO:MATIC", "CRYPTO:AVAX", "CRYPTO:XRP", "CRYPTO:DOGE", "CRYPTO:DOT", "CRYPTO:LINK", "CRYPTO:TON"
     ]
