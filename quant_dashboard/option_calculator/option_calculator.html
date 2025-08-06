@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option Calculator</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../layout.css">
+    <link rel="stylesheet" href="./option_calculator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <script src="../option_calculator/option_calculator.js"></script>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Quant<span class="highlight">Hub</span></h2>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="../dashboard/dashboard.html"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+                    <li class="active"><a href="#"><i class="fas fa-calculator"></i><span>Option Calculator</span></a></li>
+                    <li><a href="#"><i class="fas fa-table"></i><span>Data Analysis</span></a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <h1>Option Calculator</h1>
+                </div>
+            </header>
+
+            <section class="content-section calculator-section">
+                <h2>Model Inputs</h2>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="stock-price">Stock Price (S)</label>
+                        <input type="number" id="stock-price" value="100.0">
+                    </div>
+                    <div class="input-group">
+                        <label for="strike-price">Strike Price (K)</label>
+                        <input type="number" id="strike-price" value="100.0">
+                    </div>
+                    <div class="input-group">
+                        <label for="time-to-maturity">Time to Maturity (T)</label>
+                        <input type="number" id="time-to-maturity" value="1.0">
+                    </div>
+                    <div class="input-group">
+                        <label for="risk-free-rate">Risk-Free Rate (r)</label>
+                        <input type="number" id="risk-free-rate" value="0.05">
+                    </div>
+                    <div class="input-group">
+                        <label for="volatility">Volatility (sigma)</label>
+                        <input type="number" id="volatility" value="0.2">
+                    </div>
+                    <div class="input-group">
+                        <label for="dividend-yield">Dividend Yield (q)</label>
+                        <input type="number" id="dividend-yield" value="0.02">
+                    </div>
+                </div>
+                <button class="calculate-btn">Calculate</button>
+            </section>
+
+            <section class="content-section result-section">
+                <div class="result-and-chart-container">
+                    <div class="result-display-grid">
+                        <div class="result-box">
+                            <span class="result-label">Price</span>
+                            <span class="result-value" id="option-price">--</span>
+                        </div>
+                        <div class="result-box">
+                            <span class="result-label">Delta</span>
+                            <span class="result-value" id="delta">--</span>
+                        </div>
+                        <div class="result-box">
+                            <span class="result-label">Gamma</span>
+                            <span class="result-value" id="gamma">--</span>
+                        </div>
+                        <div class="result-box">
+                            <span class="result-label">Vega</span>
+                            <span class="result-value" id="vega">--</span>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Implied Volatility Smile</h3>
+                        <div id="volatility-chart"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

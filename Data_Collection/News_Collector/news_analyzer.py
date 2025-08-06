@@ -1,5 +1,3 @@
-# news_analyzer.py (Version 1.1: KeyError Hotfix)
-
 import pandas as pd
 import logging
 import os

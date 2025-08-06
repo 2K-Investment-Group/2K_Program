@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quant Trading Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Quant<span class="highlight">Hub</span></h2>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+                    <li><a href="../option_calculator/option_calculator.html"><i class="fas fa-calculator"></i><span>Option Calculator</span></a></li>
+                    <li><a href="#"><i class="fas fa-table"></i><span>Data Analysis</span></a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <h1>Dashboard</h1>
+                </div>
+            </header>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>Portfolio Value</h3>
+                    <p class="big-number">$123,456.78</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Daily P&L</h3>
+                    <p class="big-number positive">+$1,234.56</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Portfolio Delta</h3>
+                    <p class="big-number">12.34</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Portfolio Vega</h3>
+                    <p class="big-number">45.67</p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2>Portfolio Performance</h2>
+                <div class="chart-container">
+                    </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Position Breakdown</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Shares</th>
+                                <th>Cost Basis</th>
+                                <th>Market Price</th>
+                                <th>P&L</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AAPL</td>
+                                <td>100</td>
+                                <td>$175.00</td>
+                                <td>$180.20</td>
+                                <td class="positive">+$520.00</td>
+                            </tr>
+                            <tr>
+                                <td>MSFT</td>
+                                <td>50</td>
+                                <td>$410.00</td>
+                                <td>$405.50</td>
+                                <td class="negative">-$225.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

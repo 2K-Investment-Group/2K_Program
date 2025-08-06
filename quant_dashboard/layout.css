@@ -1,0 +1,83 @@
+/* src/styles/layout.css */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar .logo h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.sidebar .logo .highlight {
+    color: var(--highlight-color);
+}
+
+.sidebar .navigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar .navigation li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--font-color);
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.sidebar .navigation li a:hover,
+.sidebar .navigation li.active a {
+    background-color: #444444;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg-color);
+    padding: 15px 25px;
+    border-radius: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header input[type="text"] {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: var(--font-color);
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
